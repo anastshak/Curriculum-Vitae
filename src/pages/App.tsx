@@ -1,4 +1,4 @@
-import './App.css';
+// временная "домашняя" страница
 
 function App() {
   return (
