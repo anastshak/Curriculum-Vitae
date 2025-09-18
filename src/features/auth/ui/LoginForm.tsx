@@ -8,12 +8,12 @@ import { Alert, Box, Button, Typography } from '@mui/material';
 import { AuthFormData, authSchema } from '@features/auth/lib/validationSchema';
 import { ROUTES } from '@shared/consts/routes';
 
-import { useSignup } from '../api/signup';
+import { useLogin } from '../api/login';
 import { useAuth } from '../model/useAuth';
 import { EmailField } from './EmailField';
 import { PasswordField } from './PasswordField';
 
-export const SignupForm = () => {
+export const LoginForm = () => {
   const { t } = useTranslation();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ export const SignupForm = () => {
     mode: 'onChange',
   });
 
-  const [signupMutation, { loading }] = useSignup();
+  const [loginQuery, { loading }] = useLogin();
 
   const onSubmit = async (data: AuthFormData) => {
     try {
       setError(null);
 
-      const { data: result } = await signupMutation({
+      const { data: result } = await loginQuery({
         variables: {
           auth: {
             email: data.email,
@@ -43,8 +43,8 @@ export const SignupForm = () => {
         },
       });
 
-      if (result?.signup) {
-        const { access_token, refresh_token } = result.signup;
+      if (result?.login) {
+        const { access_token, refresh_token } = result.login;
         login({
           accessToken: access_token,
           refreshToken: refresh_token,
@@ -74,11 +74,11 @@ export const SignupForm = () => {
       }}
     >
       <Typography variant="h4" textAlign="center" sx={{ marginBottom: '24px' }}>
-        {t('Register now')}
+        {t('Welcome back')}
       </Typography>
 
       <Typography variant="body1" textAlign="center" sx={{ marginBottom: '40px' }}>
-        {t('Welcome! Sign up to continue.')}
+        {t('Hello again! Log in to continue')}
       </Typography>
 
       {/* Form */}
@@ -109,7 +109,7 @@ export const SignupForm = () => {
             fontWeight: 'medium',
           }}
         >
-          {isLoading ? t('Creating account') : t('Create account')}
+          {isLoading ? t('Wait') : t('Log in')}
         </Button>
 
         <Button
@@ -121,7 +121,7 @@ export const SignupForm = () => {
             color: 'text.secondary',
           }}
         >
-          {t('I have an account')}
+          {t('Forgot password')}
         </Button>
       </Box>
     </Box>

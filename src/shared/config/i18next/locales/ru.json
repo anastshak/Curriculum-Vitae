@@ -12,13 +12,11 @@
   "Invalid email format": "Некорректный формат почты",
   "Password is required": "Введите пароль",
   "At least 5 characters": "Пароль должен содержать минимум 5 символов",
-
-  "Welcome Back": "С Возвращением",
-  "Hello again! Sign in to continue.": "Привет! Войдите, чтобы продолжить.",
-  "Sign in": "Войти",
-  "I don't have an account": "У меня нет аккаунта",
-  "Reset password": "Сбросить пароль",
-  "Sign up": "Создать аккаунт",
+  "Welcome back": "С возвращением",
+  "Hello again! Log in to continue": "Рады вас видеть! Войдите, чтобы продолжить",
+  "Wait": "Подождите...",
+  "Log in": "Войти",
+  "Forgot password": "Забыли пароль",
 
   "Home": "Главная",
   "employees": "Сотрудники",

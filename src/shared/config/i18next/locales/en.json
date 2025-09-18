@@ -12,13 +12,11 @@
   "Invalid email format": "Invalid email format",
   "Password is required": "Password is required",
   "At least 5 characters": "Password must be at least 5 characters",
-
-  "Welcome Back": "Welcome Back",
-  "Hello again! Sign in to continue.": "Hello again! Sign in to continue.",
-  "Sign in": "Sign in",
-  "I don't have an account": "I don't have an account",
-  "Reset password": "Reset password",
-  "Sign up": "Sign up",
+  "Welcome back": "Welcome back",
+  "Hello again! Log in to continue": "Hello again! Log in to continue",
+  "Wait": "Wait...",
+  "Log in": "Log in",
+  "Forgot password": "Forgot password",
 
   "Home": "Home",
   "employees": "Employees",
