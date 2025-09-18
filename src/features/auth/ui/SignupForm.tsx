@@ -63,6 +63,7 @@ export const SignupForm = () => {
     <Box
       component="form"
       onSubmit={handleSubmit(onSubmit)}
+      noValidate
       sx={{
         display: 'flex',
         flexDirection: 'column',
