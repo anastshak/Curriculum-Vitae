@@ -71,7 +71,9 @@ export const getTheme = (mode: 'light' | 'dark') =>
           input: {
             padding: 0,
             '&:-webkit-autofill': {
-              WebkitBoxShadow: '0 0 0 100px #ffffff inset',
+              WebkitBoxShadow: `0 0 0 100px ${mode === 'dark' ? '#353535' : '#F5F5F7'} inset`,
+              WebkitTextFillColor: mode === 'dark' ? '#FFFFFF' : '#2E2E2E',
+              transition: 'background-color 5000s ease-in-out 0s',
             },
           },
         },
