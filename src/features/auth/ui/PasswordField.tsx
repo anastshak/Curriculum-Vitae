@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment, TextField, TextFieldProps } from '@mui/material';
 
@@ -8,6 +9,7 @@ interface PasswordFieldProps extends Omit<TextFieldProps, 'type'> {
 }
 
 export const PasswordField = ({ register, error, helperText, ...props }: PasswordFieldProps) => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -16,6 +18,7 @@ export const PasswordField = ({ register, error, helperText, ...props }: Passwor
 
   return (
     <TextField
+      label={t('Password')}
       type={showPassword ? 'text' : 'password'}
       autoComplete="new-password"
       error={error}

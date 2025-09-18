@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Alert, Box, Button, Typography } from '@mui/material';
@@ -13,6 +14,7 @@ import { EmailField } from './EmailField';
 import { PasswordField } from './PasswordField';
 
 export const SignupForm = () => {
+  const { t } = useTranslation();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -71,11 +73,11 @@ export const SignupForm = () => {
       }}
     >
       <Typography variant="h4" textAlign="center" sx={{ marginBottom: '24px' }}>
-        Register now
+        {t('Register now')}
       </Typography>
 
       <Typography variant="body1" textAlign="center" sx={{ marginBottom: '40px' }}>
-        Welcome! Sign up to continue
+        {t('Welcome! Sign up to continue.')}
       </Typography>
 
       {/* Form */}
@@ -86,18 +88,12 @@ export const SignupForm = () => {
           </Alert>
         )}
 
-        <EmailField
-          label="Email"
-          register={register('email')}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-        />
+        <EmailField register={register('email')} error={!!errors.email} helperText={t(errors.email?.message || '')} />
 
         <PasswordField
-          label="Password"
           register={register('password')}
           error={!!errors.password}
-          helperText={errors.password?.message}
+          helperText={t(errors.password?.message || '')}
         />
       </Box>
 
@@ -112,7 +108,7 @@ export const SignupForm = () => {
             fontWeight: 'medium',
           }}
         >
-          {isLoading ? 'Creating Account...' : 'create account'}
+          {isLoading ? t('Creating account') : t('Create account')}
         </Button>
 
         <Button
@@ -120,11 +116,11 @@ export const SignupForm = () => {
           sx={{
             py: 1.5,
             fontSize: '14px',
-            fontWeight: 'medium',
+            fontWeight: '500',
             color: 'text.secondary',
           }}
         >
-          I have an account
+          {t('I have an account')}
         </Button>
       </Box>
     </Box>

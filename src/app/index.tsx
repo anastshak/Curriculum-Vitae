@@ -9,6 +9,8 @@ import { client } from './providers/apollo/client';
 import { router } from './providers/router/router';
 import { AppThemeProvider } from './providers/theme';
 
+import '@shared/config/i18next';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ApolloProvider client={client}>
