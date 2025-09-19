@@ -3,9 +3,11 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
-import { AuthLayout, ForgotPassword, Login, ResetPassword, Signup, Users } from '@shared/consts/page-links';
+import { AuthLayout, ErrorPage, ForgotPassword, Login, ResetPassword, Signup, Users } from '@shared/consts/page-links';
 import { ROUTES } from '@shared/consts/routes';
 import { Loader } from '@shared/ui/Loader';
+
+import { ErrorBoundary } from '../error/ErrorBoundary';
 
 export const routerRoutes = [
   {
@@ -50,11 +52,15 @@ export const routerRoutes = [
   },
   {
     path: '*',
-    element: <div>Page not found</div>,
+    element: <ErrorPage />,
   },
 ].map((route) => ({
   ...route,
-  element: <Suspense fallback={<Loader />}>{route.element}</Suspense>,
+  element: (
+    <ErrorBoundary>
+      <Suspense fallback={<Loader />}>{route.element}</Suspense>,
+    </ErrorBoundary>
+  ),
 }));
 
 export const router = createBrowserRouter(routerRoutes);
