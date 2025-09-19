@@ -58,7 +58,7 @@ export const routerRoutes = [
   ...route,
   element: (
     <ErrorBoundary>
-      <Suspense fallback={<Loader />}>{route.element}</Suspense>,
+      <Suspense fallback={<Loader />}>{route.element}</Suspense>
     </ErrorBoundary>
   ),
 }));

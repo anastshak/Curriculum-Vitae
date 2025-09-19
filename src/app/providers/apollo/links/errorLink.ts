@@ -1,7 +1,7 @@
 import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
 import { ErrorLink } from '@apollo/client/link/error';
 
-import { authStorage } from '@features/auth/lib/authStorage';
+import { authStorage } from '@features/auth';
 
 export const errorLink = new ErrorLink(({ error }) => {
   if (CombinedGraphQLErrors.is(error)) {

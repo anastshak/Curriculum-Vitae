@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client/react';
 
-import { AuthProvider } from '@features/auth/model/AuthContext';
+import { AuthProvider } from '@features/auth';
 
 import { client } from './providers/apollo/client';
 import { router } from './providers/router/router';
