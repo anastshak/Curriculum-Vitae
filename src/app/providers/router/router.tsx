@@ -1,14 +1,13 @@
+import { Suspense } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
-import { AuthLayout, LoginPage, SignupPage } from '@pages/auth';
-import { ForgotPasswordPage } from '@pages/forgot-password';
-import { ResetPasswordPage } from '@pages/reset-password';
-import { UsersPage } from '@pages/users';
+import { AuthLayout, ForgotPassword, Login, ResetPassword, Signup, Users } from '@shared/consts/page-links';
 import { ROUTES } from '@shared/consts/routes';
+import { Loader } from '@shared/ui/Loader';
 
-export const router = createBrowserRouter([
+export const routerRoutes = [
   {
     path: '/',
     element: <Navigate to={ROUTES.AUTH.LOGIN} replace />,
@@ -18,7 +17,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.USERS,
-        element: <UsersPage />,
+        element: <Users />,
       },
     ],
   },
@@ -31,21 +30,21 @@ export const router = createBrowserRouter([
         children: [
           {
             path: ROUTES.AUTH.LOGIN,
-            element: <LoginPage />,
+            element: <Login />,
           },
           {
             path: ROUTES.AUTH.SIGNUP,
-            element: <SignupPage />,
+            element: <Signup />,
           },
         ],
       },
       {
         path: ROUTES.FORGOT_PASSWORD,
-        element: <ForgotPasswordPage />,
+        element: <ForgotPassword />,
       },
       {
         path: ROUTES.RESET_PASSWORD,
-        element: <ResetPasswordPage />,
+        element: <ResetPassword />,
       },
     ],
   },
@@ -53,4 +52,9 @@ export const router = createBrowserRouter([
     path: '*',
     element: <div>Page not found</div>,
   },
-]);
+].map((route) => ({
+  ...route,
+  element: <Suspense fallback={<Loader />}>{route.element}</Suspense>,
+}));
+
+export const router = createBrowserRouter(routerRoutes);

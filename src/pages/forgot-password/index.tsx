@@ -1,5 +1,7 @@
 import { ForgotPasswordForm } from '@features/forgot-password';
 
-export const ForgotPasswordPage = () => {
+const ForgotPasswordPage = () => {
   return <ForgotPasswordForm />;
 };
+
+export default ForgotPasswordPage;

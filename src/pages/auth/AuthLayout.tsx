@@ -6,7 +6,7 @@ import { Tab, Tabs } from '@mui/material';
 import { ROUTES } from '@shared/consts/routes';
 import { Loader } from '@shared/ui/Loader';
 
-export const AuthLayout = () => {
+const AuthLayout = () => {
   const { t } = useTranslation();
   const location = useLocation();
 
@@ -22,3 +22,5 @@ export const AuthLayout = () => {
     </>
   );
 };
+
+export default AuthLayout;

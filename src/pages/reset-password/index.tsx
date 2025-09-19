@@ -1,5 +1,7 @@
 import { ResetPasswordForm } from '@features/reset-password';
 
-export const ResetPasswordPage = () => {
+const ResetPasswordPage = () => {
   return <ResetPasswordForm />;
 };
+
+export default ResetPasswordPage;
