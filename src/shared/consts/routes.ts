@@ -8,5 +8,5 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
 
-  HOME: '/home', // временно
+  USERS: '/users',
 } as const;

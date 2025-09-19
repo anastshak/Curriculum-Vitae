@@ -25,7 +25,7 @@ export const SignupForm = () => {
         accessToken: result.signup.access_token,
         refreshToken: result.signup.refresh_token,
       });
-      navigate(ROUTES.HOME, { replace: true });
+      navigate(ROUTES.USERS, { replace: true });
     }
   };
 

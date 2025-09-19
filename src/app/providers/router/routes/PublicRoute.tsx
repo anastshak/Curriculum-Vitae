@@ -7,7 +7,7 @@ export const PublicRoute = () => {
   const { isAuth } = useAuth();
 
   if (isAuth) {
-    return <Navigate to={ROUTES.HOME} replace />;
+    return <Navigate to={ROUTES.USERS} replace />;
   }
 
   return <Outlet />;

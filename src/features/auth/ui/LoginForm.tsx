@@ -25,7 +25,7 @@ export const LoginForm = () => {
         accessToken: result.login.access_token,
         refreshToken: result.login.refresh_token,
       });
-      navigate(ROUTES.HOME, { replace: true });
+      navigate(ROUTES.USERS, { replace: true });
     }
   };
 
