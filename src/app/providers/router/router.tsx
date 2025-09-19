@@ -2,10 +2,10 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
-import App from '@pages/App';
 import { AuthLayout, LoginPage, SignupPage } from '@pages/auth';
 import { ForgotPasswordPage } from '@pages/forgot-password';
 import { ResetPasswordPage } from '@pages/reset-password';
+import { UsersPage } from '@pages/users';
 import { ROUTES } from '@shared/consts/routes';
 
 export const router = createBrowserRouter([
@@ -17,8 +17,8 @@ export const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        path: ROUTES.HOME,
-        element: <App />,
+        path: ROUTES.USERS,
+        element: <UsersPage />,
       },
     ],
   },
