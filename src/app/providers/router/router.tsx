@@ -4,6 +4,8 @@ import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
 import App from '@pages/App';
 import { AuthLayout, LoginPage, SignupPage } from '@pages/auth';
+import { ForgotPasswordPage } from '@pages/forgot-password';
+import { ResetPasswordPage } from '@pages/reset-password';
 import { ROUTES } from '@shared/consts/routes';
 
 export const router = createBrowserRouter([
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
             element: <SignupPage />,
           },
         ],
+      },
+      {
+        path: ROUTES.FORGOT_PASSWORD,
+        element: <ForgotPasswordPage />,
+      },
+      {
+        path: ROUTES.RESET_PASSWORD,
+        element: <ResetPasswordPage />,
       },
     ],
   },

@@ -5,9 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Alert, Box, Button, Typography } from '@mui/material';
 
 import { AuthFormData, authSchema } from '@features/auth/lib/validationSchema';
-
-import { EmailField } from './EmailField';
-import { PasswordField } from './PasswordField';
+import { EmailField } from '@shared/ui/EmailField';
+import { PasswordField } from '@shared/ui/PasswordField';
 
 type AuthFormProps = {
   title: string;
@@ -25,6 +24,10 @@ export const AuthForm = ({ title, subtitle, submitLabel, loadingLabel, onSubmit,
   const form: UseFormReturn<AuthFormData> = useForm<AuthFormData>({
     resolver: zodResolver(authSchema),
     mode: 'onChange',
+    defaultValues: {
+      email: '',
+      password: '',
+    },
   });
 
   const {

@@ -38,7 +38,7 @@ export const LoginForm = () => {
       onSubmit={handleLogin}
       footer={
         <Button
-          // onClick={() => navigate(ROUTES.AUTH.FORGOT_PASSWORD)}
+          onClick={() => navigate(ROUTES.FORGOT_PASSWORD)}
           sx={{ py: 1.5, fontSize: '14px', fontWeight: 500, color: 'text.secondary' }}
         >
           {t('Forgot password')}

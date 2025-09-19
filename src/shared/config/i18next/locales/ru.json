@@ -16,7 +16,18 @@
   "Hello again! Log in to continue": "Рады вас видеть! Войдите, чтобы продолжить",
   "Wait": "Подождите...",
   "Log in": "Войти",
+
   "Forgot password": "Забыли пароль",
+  "We will sent you an email with further instructions": "Мы вышлем вам электронное письмо с дальнейшими инструкциями",
+  "Reset password": "Сбросить пароль",
+  "Cancel": "Отмена",
+  "Check your email. You will be redirected to login page in 5 seconds.": "Проверьте свою почту. Вы будете перенаправлены на страницу Входа через 5 секунд.",
+
+  "Set a new password": "Установите новый пароль",
+  "Almost done! Now create a new password": "Почти готово! Теперь создайте новый пароль",
+  "Submit": "Подтвердить",
+  "Back to log in": "Вернуться для входа",
+  "Password has been updated": "Паролт был обновлен",
 
   "Home": "Главная",
   "employees": "Сотрудники",
@@ -32,7 +43,6 @@
   "Logout": "Выйти",
 
   "Search": "Поиск",
-  "Cancel": "Отмена",
   "Confirm": "Подтвердить",
   "Create": "Создать",
   "Update": "Обновить",

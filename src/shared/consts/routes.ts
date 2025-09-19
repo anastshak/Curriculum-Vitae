@@ -5,5 +5,8 @@ export const ROUTES = {
     LOGIN: '/auth/login',
   },
 
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
+
   HOME: '/home', // временно
 } as const;

@@ -16,7 +16,18 @@
   "Hello again! Log in to continue": "Hello again! Log in to continue",
   "Wait": "Wait...",
   "Log in": "Log in",
+
   "Forgot password": "Forgot password",
+  "We will sent you an email with further instructions": "We will sent you an email with further instructions",
+  "Reset password": "Reset password",
+  "Cancel": "Cancel",
+  "Check your email. You will be redirected to login page in 5 seconds.": "Check your email. You will be redirected to Login Page in 5 seconds.",
+
+  "Set a new password": "Set a new password",
+  "Almost done! Now create a new password": "Almost done! Now create a new password",
+  "Submit": "Submit",
+  "Back to log in": "Back to log in",
+  "Password has been updated": "Password has been updated",
 
   "Home": "Home",
   "employees": "Employees",
@@ -32,7 +43,6 @@
   "Logout": "Logout",
 
   "Search": "Search",
-  "Cancel": "Cancel",
   "Confirm": "Confirm",
   "Create": "Create",
   "Update": "Update",
