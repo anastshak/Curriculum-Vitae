@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Box, Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
 import { ROUTES } from '@shared/consts/routes';
+import { BaseForm } from '@shared/ui/BaseForm';
 import { EmailField } from '@shared/ui/EmailField';
 
 import { useForgotPassword } from '../api';
@@ -13,15 +14,10 @@ import { forgotPswFormData, forgotPswSchema } from '../lib/validationSchema';
 
 export const ForgotPasswordForm = () => {
   const { t } = useTranslation();
-  const [error, setError] = useState<string | null>(null);
-  const [isSent, setIsSent] = useState(false);
   const navigate = useNavigate();
+  const [isSent, setIsSent] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<forgotPswFormData>({
+  const form = useForm<forgotPswFormData>({
     resolver: zodResolver(forgotPswSchema),
     mode: 'onChange',
     defaultValues: {
@@ -29,97 +25,60 @@ export const ForgotPasswordForm = () => {
     },
   });
 
-  const [forgotPasswordMutation, { loading }] = useForgotPassword();
+  const {
+    register,
+    formState: { errors },
+  } = form;
+
+  const [forgotPasswordMutation] = useForgotPassword();
 
   const onSubmit = async (data: forgotPswFormData) => {
-    try {
-      setError(null);
-
-      const { data: result } = await forgotPasswordMutation({
-        variables: {
-          auth: {
-            email: data.email,
-          },
+    const { data: result } = await forgotPasswordMutation({
+      variables: {
+        auth: {
+          email: data.email,
         },
-      });
+      },
+    });
 
-      if (result) {
-        setIsSent(true);
-        setTimeout(() => {
-          navigate(ROUTES.AUTH.LOGIN, { replace: true });
-        }, 5000);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
+    if (result) {
+      setIsSent(true);
+      setTimeout(() => {
+        navigate(ROUTES.AUTH.LOGIN, { replace: true });
+      }, 5000);
     }
   };
 
-  const isLoading = isSubmitting || loading;
+  const fields = (
+    <EmailField register={register('email')} error={!!errors.email} helperText={t(errors.email?.message || '')} />
+  );
 
-  return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
+  const footer = (
+    <Button
+      onClick={() => navigate(ROUTES.AUTH.LOGIN)}
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        maxWidth: 560,
-        height: 'calc(100% - 56px)',
-        margin: '0 auto',
+        py: 1.5,
+        fontSize: '14px',
+        fontWeight: '500',
+        color: 'text.secondary',
       }}
     >
-      {isSent && (
-        <Alert variant="filled" severity="success" sx={{ marginBottom: '24px' }}>
-          {t('Check your email. You will be redirected to login page in 5 seconds.')}
-        </Alert>
-      )}
+      {t('Cancel')}
+    </Button>
+  );
 
-      <Typography variant="h4" textAlign="center" sx={{ marginBottom: '24px' }}>
-        {t('Forgot password')}
-      </Typography>
-
-      <Typography variant="body1" textAlign="center" sx={{ marginBottom: '40px' }}>
-        {t('We will sent you an email with further instructions')}
-      </Typography>
-
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
-        {error && (
-          <Alert severity="error" sx={{ width: '100%' }}>
-            {error}
-          </Alert>
-        )}
-
-        <EmailField register={register('email')} error={!!errors.email} helperText={t(errors.email?.message || '')} />
-      </Box>
-
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', margin: '40px auto 0' }}>
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={isLoading || isSent}
-          sx={{
-            py: 1.5,
-            fontSize: '14px',
-            fontWeight: 'medium',
-          }}
-        >
-          {isLoading ? t('Wait') : t('Reset password')}
-        </Button>
-
-        <Button
-          onClick={() => navigate(ROUTES.AUTH.LOGIN)}
-          sx={{
-            py: 1.5,
-            fontSize: '14px',
-            fontWeight: '500',
-            color: 'text.secondary',
-          }}
-        >
-          {t('Cancel')}
-        </Button>
-      </Box>
-    </Box>
+  return (
+    <BaseForm
+      title="Forgot password"
+      subtitle="We will sent you an email with further instructions"
+      submitLabel="Reset password"
+      loadingLabel="Wait"
+      form={form}
+      onSubmit={onSubmit}
+      footer={footer}
+      fields={fields}
+      successMessage="Check your email. You will be redirected to login page in 5 seconds."
+      isSuccess={isSent}
+    />
   );
 };
