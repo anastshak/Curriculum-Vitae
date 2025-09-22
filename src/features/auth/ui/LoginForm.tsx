@@ -6,13 +6,12 @@ import { AuthFormData } from '@features/auth/lib/validationSchema';
 import { ROUTES } from '@shared/consts/routes';
 
 import { useLogin } from '../api/login';
-import { useAuth } from '../model/useAuth';
+import { authSuccess } from '../lib/authState';
 import { AuthForm } from './AuthForm';
 
 export const LoginForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { login } = useAuth();
   const [loginQuery] = useLogin();
 
   const handleLogin = async (data: AuthFormData) => {
@@ -21,7 +20,7 @@ export const LoginForm = () => {
     });
 
     if (result?.login) {
-      login({
+      authSuccess({
         accessToken: result.login.access_token,
         refreshToken: result.login.refresh_token,
       });

@@ -6,13 +6,12 @@ import { AuthFormData } from '@features/auth/lib/validationSchema';
 import { ROUTES } from '@shared/consts/routes';
 
 import { useSignup } from '../api/signup';
-import { useAuth } from '../model/useAuth';
+import { authSuccess } from '../lib/authState';
 import { AuthForm } from './AuthForm';
 
 export const SignupForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { login } = useAuth();
   const [signupMutation] = useSignup();
 
   const handleSignup = async (data: AuthFormData) => {
@@ -21,7 +20,7 @@ export const SignupForm = () => {
     });
 
     if (result?.signup) {
-      login({
+      authSuccess({
         accessToken: result.signup.access_token,
         refreshToken: result.signup.refresh_token,
       });
