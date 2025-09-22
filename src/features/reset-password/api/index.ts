@@ -12,12 +12,6 @@ const PASSWORD_MUTATION = gql`
   }
 `;
 
-export function useResetPassword(token: string | null) {
-  return useMutation<void, ResetPasswordArgs>(PASSWORD_MUTATION, {
-    context: {
-      headers: {
-        Authorization: token ? `Bearer ${token}` : '',
-      },
-    },
-  });
+export function useResetPassword() {
+  return useMutation<void, ResetPasswordArgs>(PASSWORD_MUTATION);
 }

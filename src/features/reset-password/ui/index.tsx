@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Alert, Box, Button, Typography } from '@mui/material';
 
@@ -17,8 +17,6 @@ export const ResetPasswordForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const token = searchParams.get('token');
 
   const {
     register,
@@ -32,7 +30,7 @@ export const ResetPasswordForm = () => {
     },
   });
 
-  const [resetPasswordMutation, { loading }] = useResetPassword(token);
+  const [resetPasswordMutation, { loading }] = useResetPassword();
 
   const onSubmit = async (data: resetPswFormData) => {
     try {
