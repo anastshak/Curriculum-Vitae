@@ -20,10 +20,13 @@ export const LoginForm = () => {
     });
 
     if (result?.login) {
-      authSuccess({
-        accessToken: result.login.access_token,
-        refreshToken: result.login.refresh_token,
-      });
+      authSuccess(
+        {
+          accessToken: result.login.access_token,
+          refreshToken: result.login.refresh_token,
+        },
+        result.login.user,
+      );
       navigate(ROUTES.USERS, { replace: true });
     }
   };

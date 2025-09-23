@@ -20,10 +20,13 @@ export const SignupForm = () => {
     });
 
     if (result?.signup) {
-      authSuccess({
-        accessToken: result.signup.access_token,
-        refreshToken: result.signup.refresh_token,
-      });
+      authSuccess(
+        {
+          accessToken: result.signup.access_token,
+          refreshToken: result.signup.refresh_token,
+        },
+        result.signup.user,
+      );
       navigate(ROUTES.USERS, { replace: true });
     }
   };
