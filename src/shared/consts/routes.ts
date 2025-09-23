@@ -9,4 +9,13 @@ export const ROUTES = {
   RESET_PASSWORD: '/reset-password',
 
   USERS: '/users',
+  USER: {
+    ROOT: '/users',
+    PROFILE: '/users/:userId',
+    SKILLS: '/users/:userId/skills',
+    LANGUAGES: '/users/:userId/languages',
+    CVS: '/users/:userId/cvs',
+  },
+
+  SETTINGS: '/settings',
 } as const;

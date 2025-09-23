@@ -16,6 +16,9 @@ export const getTheme = (mode: 'light' | 'dark') =>
         primary: mode === 'dark' ? '#FFFFFF' : '#2E2E2E',
         secondary: '#767676',
       },
+      action: {
+        hover: 'rgba(118, 118, 118, 0.04)',
+      },
     },
     typography: {
       fontFamily: 'Roboto, Arial, sans-serif',

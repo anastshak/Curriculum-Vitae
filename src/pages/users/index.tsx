@@ -1,5 +1,7 @@
+import { Sidebar } from '@widgets/sidebar';
+
 const UsersPage = () => {
-  return <h1>List of users</h1>;
+  return <Sidebar />;
 };
 
 export default UsersPage;
