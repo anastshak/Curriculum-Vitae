@@ -1,13 +1,22 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Suspense } from 'react';
+import { lazy } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
-import { AuthLayout, ErrorPage, ForgotPassword, Login, ResetPassword, Signup, Users } from '@shared/consts/page-links';
 import { ROUTES } from '@shared/consts/routes';
 import { Loader } from '@shared/ui/Loader';
 
 import { ErrorBoundary } from '../error/ErrorBoundary';
+
+const Signup = lazy(() => import('@pages/auth/SignupPage'));
+const Login = lazy(() => import('@pages/auth/LoginPage'));
+const AuthLayout = lazy(() => import('@pages/auth/AuthLayout'));
+const ForgotPassword = lazy(() => import('@pages/forgot-password'));
+const ResetPassword = lazy(() => import('@pages/reset-password'));
+const Users = lazy(() => import('@pages/users'));
+const ErrorPage = lazy(() => import('@pages/error'));
 
 export const routerRoutes = [
   {
