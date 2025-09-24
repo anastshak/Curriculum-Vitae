@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { AccountCircle, Logout, Settings } from '@mui/icons-material';
-import { Avatar, Divider, Menu, MenuItem, Typography } from '@mui/material';
+import { Divider, Menu, MenuItem, Typography } from '@mui/material';
 
 import useCurrentUser from '@features/auth/model/useCurrentUser';
 import { useLogout } from '@features/auth/model/useLogout';
 import { ROUTES } from '@shared/consts/routes';
+import { AvatarItem } from '@shared/ui/Avatar';
 
 import * as Styled from './SidebarProfileItem.styles';
 
@@ -19,7 +20,7 @@ export const SidebarProfileItem = ({ isCollapsed }: SidebarProfileItemProps) => 
   const navigate = useNavigate();
   const [anchorRef, setAnchorRef] = useState<null | HTMLElement>(null);
 
-  const user = useCurrentUser();
+  const currUser = useCurrentUser();
   const logout = useLogout();
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -45,18 +46,12 @@ export const SidebarProfileItem = ({ isCollapsed }: SidebarProfileItemProps) => 
     handleCloseMenu();
   };
 
-  const userName = user?.profile.full_name || user?.email;
-  const userAvatar = user?.profile.avatar;
-  const userAvatarLetter = (user?.profile.first_name || user?.email)?.[0]?.toUpperCase();
+  const userName = currUser?.profile.full_name || currUser?.email;
 
   return (
     <>
       <Styled.Box onClick={handleOpenMenu}>
-        {userAvatar ? (
-          <Avatar src={userAvatar} sx={{ width: 40, height: 40 }} />
-        ) : (
-          <Avatar sx={{ width: 40, height: 40, bgcolor: 'primary.main' }}>{userAvatarLetter}</Avatar>
-        )}
+        {currUser && <AvatarItem user={currUser} />}
 
         {!isCollapsed && (
           <Typography noWrap sx={{ ml: 1 }}>
