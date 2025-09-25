@@ -7,14 +7,16 @@ interface StyledProps {
   isCollapsed: boolean;
 }
 
-export const Drawer = styled(MuiDrawer)<StyledProps>(({ theme, isCollapsed }) => ({
+export const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'isCollapsed',
+})<StyledProps>(({ theme, isCollapsed }) => ({
   boxSizing: 'border-box',
   width: isCollapsed ? '56px' : '200px',
   flexShrink: 0,
 
   [`& .MuiDrawer-paper`]: {
     width: isCollapsed ? '56px' : '200px',
-    transition: 'width 0.3s',
+    transition: 'width 0.5s',
     paddingTop: '44px',
     borderRight: 'none',
     backgroundColor: 'transparent',
@@ -29,6 +31,7 @@ export const Drawer = styled(MuiDrawer)<StyledProps>(({ theme, isCollapsed }) =>
     position: 'fixed',
     bottom: 0,
     left: 0,
+    zIndex: '9999',
 
     [`& .MuiDrawer-paper`]: {
       width: '100%',
@@ -42,6 +45,10 @@ export const Drawer = styled(MuiDrawer)<StyledProps>(({ theme, isCollapsed }) =>
       justifyContent: 'space-around',
       padding: '0 16px',
       overflowY: 'hidden',
+      backgroundColor: theme.palette.background.default,
+      borderTop: `1px solid #e0e0e0`,
+      boxShadow: '0 -2px 8px rgba(0,0,0,0.1)',
+      zIndex: '9999',
     },
   },
 }));
@@ -57,7 +64,9 @@ export const List = styled(MuiList)(({ theme }) => ({
   },
 }));
 
-export const Box = styled(MuiBox)<StyledProps>(({ theme, isCollapsed }) => ({
+export const Box = styled(MuiBox, {
+  shouldForwardProp: (prop) => prop !== 'isCollapsed',
+})<StyledProps>(({ theme, isCollapsed }) => ({
   display: 'flex',
   justifyContent: isCollapsed ? 'center' : 'flex-start',
   padding: '8px',
