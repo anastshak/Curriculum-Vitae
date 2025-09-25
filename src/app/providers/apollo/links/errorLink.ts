@@ -1,4 +1,4 @@
-import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
+import { CombinedGraphQLErrors, Observable, ServerError } from '@apollo/client';
 import { ErrorLink } from '@apollo/client/link/error';
 
 import { UPDATE_TOKEN, UpdateTokenResponse } from '@features/auth/api/updateToken';
@@ -8,9 +8,7 @@ import { cleanClient } from '../cleanClient';
 
 export const errorLink = new ErrorLink(({ error, operation, forward }) => {
   if (CombinedGraphQLErrors.is(error)) {
-    error.errors.forEach(({ message }) => {
-      console.error(`GraphQL error: ${message}`);
-
+    for (const { message } of error.errors) {
       if (message === 'Unauthorized') {
         const refreshToken = refreshTokenVar();
 
@@ -19,44 +17,52 @@ export const errorLink = new ErrorLink(({ error, operation, forward }) => {
           return;
         }
 
-        return cleanClient
-          .mutate<UpdateTokenResponse>({
-            mutation: UPDATE_TOKEN,
-            context: {
-              headers: {
-                authorization: `Bearer ${refreshToken}`,
-              },
-            },
-          })
-          .then((response) => {
-            const tokens = response.data?.updateToken;
-            if (tokens) {
-              authSuccess({
-                accessToken: tokens.access_token,
-                refreshToken: tokens.refresh_token,
-              });
-
-              const oldHeaders = operation.getContext().headers;
-              operation.setContext({
+        return new Observable((observer) => {
+          cleanClient
+            .mutate<UpdateTokenResponse>({
+              mutation: UPDATE_TOKEN,
+              context: {
                 headers: {
-                  ...oldHeaders,
-                  authorization: `Bearer ${tokens.access_token}`,
+                  authorization: `Bearer ${refreshToken}`,
                 },
-              });
+              },
+            })
+            .then((response) => {
+              const tokens = response.data?.updateToken;
 
-              return forward(operation);
-            } else {
+              if (tokens) {
+                authSuccess({
+                  accessToken: tokens.access_token,
+                  refreshToken: tokens.refresh_token,
+                });
+
+                operation.setContext(({ headers = {} }) => ({
+                  headers: {
+                    ...headers,
+                    authorization: `Bearer ${tokens.access_token}`,
+                  },
+                }));
+
+                forward(operation).subscribe(observer);
+              } else {
+                clearAuth();
+                observer.error(error);
+              }
+            })
+            .catch((err) => {
               clearAuth();
-            }
-          })
-          .catch(() => {
-            clearAuth();
-          });
+              observer.error(err);
+            });
+        });
       }
-    });
-  } else if (ServerError.is(error)) {
+    }
+  }
+
+  if (ServerError.is(error)) {
     console.error(`Server error: ${error.message}`);
-  } else if (error) {
+  }
+
+  if (error) {
     console.error(`Other error: ${error.message}`);
   }
 });
