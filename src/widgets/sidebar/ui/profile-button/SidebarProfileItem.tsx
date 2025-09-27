@@ -32,7 +32,8 @@ export const SidebarProfileItem = ({ isCollapsed }: SidebarProfileItemProps) => 
   };
 
   const handleProfileClick = () => {
-    navigate(ROUTES.USER.PROFILE);
+    const userId = currUser ? currUser.id : '';
+    navigate(ROUTES.USER.PROFILE.replace(':userId', userId));
     handleCloseMenu();
   };
 
