@@ -12,9 +12,9 @@ export const ROUTES = {
   USER: {
     ROOT: '/users',
     PROFILE: '/users/:userId',
-    SKILLS: '/users/:userId/skills',
-    LANGUAGES: '/users/:userId/languages',
-    CVS: '/users/:userId/cvs',
+    SKILLS: '/users/skills',
+    LANGUAGES: '/users/languages',
+    CVS: '/users/cvs',
   },
 
   SETTINGS: '/settings',
