@@ -20,6 +20,11 @@ export function authSuccess(tokens: AuthTokens, user?: User) {
   }
 }
 
+export function updateUserData(updatedUser: User) {
+  authStorage.saveUser(updatedUser);
+  userVar(updatedUser);
+}
+
 export function clearAuth() {
   authStorage.clear();
   accessTokenVar(null);
