@@ -11,16 +11,16 @@ export const sidebarLinks = [
   {
     IconComponent: TrendingUp,
     name: 'skills',
-    to: ROUTES.USER.SKILLS,
+    to: ROUTES.SKILLS,
   },
   {
     IconComponent: Translate,
     name: 'languages',
-    to: ROUTES.USER.LANGUAGES,
+    to: ROUTES.LANGUAGES,
   },
   {
     IconComponent: ContactPageOutlined,
     name: 'cvs',
-    to: ROUTES.USER.CVS,
+    to: ROUTES.CVS,
   },
 ];

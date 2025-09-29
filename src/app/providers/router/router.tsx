@@ -17,6 +17,8 @@ const ForgotPassword = lazy(() => import('@pages/forgot-password'));
 const ResetPassword = lazy(() => import('@pages/reset-password'));
 const Users = lazy(() => import('@pages/users'));
 const ErrorPage = lazy(() => import('@pages/error'));
+const Skills = lazy(() => import('@pages/skills'));
+const Profile = lazy(() => import('@pages/profile'));
 
 export const routerRoutes = [
   {
@@ -29,6 +31,14 @@ export const routerRoutes = [
       {
         path: ROUTES.USERS,
         element: <Users />,
+      },
+      {
+        path: ROUTES.USER.PROFILE,
+        element: <Profile />,
+      },
+      {
+        path: ROUTES.SKILLS,
+        element: <Skills />,
       },
     ],
   },

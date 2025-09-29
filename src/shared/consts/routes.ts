@@ -18,4 +18,8 @@ export const ROUTES = {
   },
 
   SETTINGS: '/settings',
+
+  SKILLS: '/skills',
+  LANGUAGES: '/languages',
+  CVS: '/cvs',
 } as const;
