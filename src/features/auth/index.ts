@@ -9,6 +9,6 @@ export {
   updateUserData,
   userVar,
 } from './lib/authState';
-export { authStorage } from './lib/authStorage';
+export { useCurrentUser } from './model/useCurrentUser';
 export { LoginForm } from './ui/LoginForm';
 export { SignupForm } from './ui/SignupForm';

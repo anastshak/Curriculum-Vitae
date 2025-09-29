@@ -2,6 +2,6 @@ import { useReactiveVar } from '@apollo/client/react';
 
 import { userVar } from '../lib/authState';
 
-export default function useCurrentUser() {
+export const useCurrentUser = () => {
   return useReactiveVar(userVar);
-}
+};

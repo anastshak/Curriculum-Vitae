@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AccountCircle, Logout, Settings } from '@mui/icons-material';
 import { Divider, Menu, MenuItem, Typography } from '@mui/material';
 
-import useCurrentUser from '@features/auth/model/useCurrentUser';
+import { useCurrentUser } from '@features/auth';
 import { useLogout } from '@features/auth/model/useLogout';
 import { ROUTES } from '@shared/consts/routes';
 import { AvatarItem } from '@shared/ui/Avatar';
