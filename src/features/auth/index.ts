@@ -1,5 +1,5 @@
-export type { UpdateTokenResponse } from './api/updateToken';
-export { UPDATE_TOKEN } from './api/updateToken';
+export type { UpdateTokenResponse } from './api';
+export { UPDATE_TOKEN } from './api';
 export {
   accessTokenVar,
   authSuccess,

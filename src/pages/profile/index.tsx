@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { Layout } from '@widgets/layout/Layout';
+import { Layout } from '@widgets/layout';
 
 const ProfilePage = () => {
   const { userId } = useParams();

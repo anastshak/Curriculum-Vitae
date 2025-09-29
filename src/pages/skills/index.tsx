@@ -1,4 +1,4 @@
-import { Layout } from '@widgets/layout/Layout';
+import { Layout } from '@widgets/layout';
 
 const SkillsPage = () => {
   return (

@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import { AuthFormData } from '@features/auth/lib/validationSchema';
 import { ROUTES } from '@shared/consts/routes';
 
-import { useSignup } from '../api/signup';
+import { useSignup } from '../api';
 import { authSuccess } from '../lib/authState';
 import { AuthForm } from './AuthForm';
 

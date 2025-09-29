@@ -1,18 +1,8 @@
 import { gql } from '@apollo/client';
-import { useLazyQuery } from '@apollo/client/react';
-import type { AuthInput, AuthResult } from 'cv-graphql';
 
-type LoginArgs = {
-  auth: AuthInput;
-};
-
-type LoginResult = {
-  login: AuthResult;
-};
-
-const LOGIN = gql`
-  query Login($auth: AuthInput!) {
-    login(auth: $auth) {
+export const SIGNUP = gql`
+  mutation Signup($auth: AuthInput!) {
+    signup(auth: $auth) {
       access_token
       refresh_token
       user {
@@ -54,7 +44,3 @@ const LOGIN = gql`
     }
   }
 `;
-
-export const useLogin = () => {
-  return useLazyQuery<LoginResult, LoginArgs>(LOGIN);
-};

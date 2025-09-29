@@ -1,7 +1,7 @@
 import { CombinedGraphQLErrors, Observable, ServerError } from '@apollo/client';
 import { ErrorLink } from '@apollo/client/link/error';
 
-import { UPDATE_TOKEN, UpdateTokenResponse } from '@features/auth/api/updateToken';
+import { UPDATE_TOKEN, UpdateTokenResponse } from '@features/auth/api';
 import { authSuccess, clearAuth, refreshTokenVar } from '@features/auth/lib/authState';
 
 import { cleanClient } from '../cleanClient';

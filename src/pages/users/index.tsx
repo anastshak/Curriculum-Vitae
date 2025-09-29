@@ -1,4 +1,4 @@
-import { Layout } from '@widgets/layout/Layout';
+import { Layout } from '@widgets/layout';
 import { UsersTable } from '@features/users';
 
 const UsersPage = () => {
