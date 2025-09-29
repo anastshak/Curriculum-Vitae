@@ -1,10 +1,4 @@
 import { gql } from '@apollo/client';
-import { useQuery } from '@apollo/client/react';
-import { User } from 'cv-graphql';
-
-type UsersResult = {
-  users: User[];
-};
 
 export const USERS_QUERY = gql`
   query Users {
@@ -28,7 +22,3 @@ export const USERS_QUERY = gql`
     }
   }
 `;
-
-export function useUsers() {
-  return useQuery<UsersResult>(USERS_QUERY);
-}
