@@ -20,7 +20,6 @@
   "Forgot password": "Forgot password",
   "We will sent you an email with further instructions": "We will sent you an email with further instructions",
   "Reset password": "Reset password",
-  "Cancel": "Cancel",
   "Check your email. You will be redirected to login page in 5 seconds.": "Check your email. You will be redirected to Login Page in 5 seconds.",
 
   "Set a new password": "Set a new password",
@@ -35,6 +34,7 @@
 
   "Home": "Home",
   "employees": "Employees",
+  "users": "Employees",
   "projects": "Projects",
   "cvs": "CVs",
   "departments": "Departments",
@@ -42,24 +42,25 @@
   "skills": "Skills",
   "languages": "Languages",
   "profile": "Profile",
+
   "Profile": "Profile",
   "Settings": "Settings",
   "Logout": "Logout",
 
   "Search": "Search",
   "Confirm": "Confirm",
+  "Cancel": "Cancel",
   "Create": "Create",
   "Update": "Update",
+  "Delete": "Delete",
+  "Edit profile": "Edit profile",
+  "Are you sure you want to delete user": "Are you sure you want to delete user?",
 
   "First Name": "First Name",
   "Last Name": "Last Name",
   "Department": "Department",
   "Position": "Position",
-  "Create user": "Create user",
   "Role": "Role",
-  "Admin": "Admin",
-  "Delete user": "Delete user",
-  "Are you sure you want to delete user": "Are you sure you want to delete user",
 
   "Upload avatar image": "Upload avatar image",
   "png, jpg or gif no more than 0.5MB": "png, jpg or gif no more than 0.5MB",

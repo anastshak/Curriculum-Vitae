@@ -1,7 +1,12 @@
-import { Sidebar } from '@widgets/sidebar';
+import { Layout } from '@widgets/layout/Layout';
+import { UsersTable } from '@features/users';
 
 const UsersPage = () => {
-  return <Sidebar />;
+  return (
+    <Layout>
+      <UsersTable />
+    </Layout>
+  );
 };
 
 export default UsersPage;
