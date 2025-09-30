@@ -3,6 +3,8 @@ import { FieldValues, UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Alert, Box, Button, Typography } from '@mui/material';
 
+import { alertBox, footerBox, submitBtn, wrapper } from './BaseForm.styles';
+
 type BaseFormProps<TFieldValues extends FieldValues> = {
   title: string;
   subtitle: string;
@@ -48,19 +50,7 @@ export const BaseForm = <TFieldValues extends FieldValues>({
   const isLoading = isSubmitting;
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit(handleFormSubmit)}
-      noValidate
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        maxWidth: 560,
-        height: 'calc(100% - 56px)',
-        margin: '0 auto',
-      }}
-    >
+    <Box component="form" onSubmit={handleSubmit(handleFormSubmit)} noValidate sx={wrapper}>
       {isSuccess && successMessage && (
         <Alert variant="filled" severity="success" sx={{ marginBottom: '24px' }}>
           {t(successMessage)}
@@ -75,7 +65,7 @@ export const BaseForm = <TFieldValues extends FieldValues>({
         {t(subtitle)}
       </Typography>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
+      <Box sx={alertBox}>
         {error && (
           <Alert severity="error" sx={{ width: '100%' }}>
             {error}
@@ -85,17 +75,8 @@ export const BaseForm = <TFieldValues extends FieldValues>({
         {fields}
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', margin: '40px auto 0' }}>
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={isLoading || isSuccess}
-          sx={{
-            py: 1.5,
-            fontSize: '14px',
-            fontWeight: 'medium',
-          }}
-        >
+      <Box sx={footerBox}>
+        <Button type="submit" variant="contained" disabled={isLoading || isSuccess} sx={submitBtn}>
           {isLoading ? t(loadingLabel) : t(submitLabel)}
         </Button>
 

@@ -3,18 +3,13 @@ import { NavigateNext } from '@mui/icons-material';
 import { Box, Breadcrumbs as MuiBreadcrumbs, Link, Typography } from '@mui/material';
 
 import { useBreadcrumbs } from '../lib/useBreadcrumbs';
+import { linkItem, wrapper } from './Breadcrumbs.styles';
 
 export const Breadcrumbs = () => {
   const breadcrumbs = useBreadcrumbs();
 
   return (
-    <Box
-      sx={{
-        paddingTop: 2,
-        paddingLeft: 3,
-        height: '44px',
-      }}
-    >
+    <Box sx={wrapper}>
       <MuiBreadcrumbs separator={<NavigateNext fontSize="small" />} aria-label="breadcrumb">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
@@ -28,19 +23,7 @@ export const Breadcrumbs = () => {
           }
 
           return (
-            <Link
-              key={crumb.path}
-              component={RouterLink}
-              to={crumb.path}
-              sx={{
-                color: 'text.secondary',
-                textDecoration: 'none',
-                '&:hover': {
-                  textDecoration: 'underline',
-                  color: 'primary.main',
-                },
-              }}
-            >
+            <Link key={crumb.path} component={RouterLink} to={crumb.path} sx={linkItem}>
               {crumb.label}
             </Link>
           );

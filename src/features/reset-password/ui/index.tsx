@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@mui/material';
 
 import { ROUTES } from '@shared/consts/routes';
-import { BaseForm } from '@shared/ui/BaseForm';
+import { BaseForm } from '@shared/ui/baseForm/BaseForm';
 import { PasswordField } from '@shared/ui/PasswordField';
 
 import { useResetPassword } from '../api';

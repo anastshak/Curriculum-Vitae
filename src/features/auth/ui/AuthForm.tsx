@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { AuthFormData, authSchema } from '@features/auth/lib/validationSchema';
-import { BaseForm } from '@shared/ui/BaseForm';
+import { BaseForm } from '@shared/ui/baseForm/BaseForm';
 import { EmailField } from '@shared/ui/EmailField';
 import { PasswordField } from '@shared/ui/PasswordField';
 
