@@ -2,9 +2,9 @@ import { useMutation } from '@apollo/client/react';
 import { UpdateProfileInput, User } from 'cv-graphql';
 
 import { updateUserData, userVar } from '@features/auth';
+import { USERS_QUERY } from '@features/users';
 
 import { UPDATE_PROFILE } from '../graphql/updateProfile.graphql';
-import { USERS_QUERY } from '../graphql/users.graphql';
 
 type UpdateProfileArgs = {
   profile: UpdateProfileInput;

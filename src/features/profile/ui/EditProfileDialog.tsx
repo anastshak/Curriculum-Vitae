@@ -7,8 +7,7 @@ import { DepartmentSelect } from '@entities/departments';
 import { PositionSelect } from '@entities/positions';
 import { BaseTextField } from '@shared/ui/BaseTextField';
 
-import { useUpdateProfile } from '../api';
-import { useUpdateUser } from '../api';
+import { useUpdateProfile, useUpdateUser } from '../api';
 import { EditUserForm } from '../lib/types';
 
 type Props = {

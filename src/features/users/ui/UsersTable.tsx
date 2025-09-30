@@ -5,12 +5,12 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useCurrentUser } from '@features/auth';
+import { EditProfileDialog } from '@features/profile';
 import { Loader } from '@shared/ui/Loader';
 
 import { useUsers } from '../api';
 import { mapUsers } from '../lib/mapUsers';
 import { EditUserForm, UserTableRow } from '../lib/types';
-import { EditProfileDialog } from './EditProfileDialog';
 import { Searchbar } from './Searchbar';
 import { getUsersTableColumns } from './UsersTableColumns';
 
