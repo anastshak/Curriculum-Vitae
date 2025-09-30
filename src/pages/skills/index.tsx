@@ -1,11 +1,7 @@
-import { Layout } from '@widgets/layout';
+import { Skills } from '@features/skills';
 
 const SkillsPage = () => {
-  return (
-    <Layout>
-      <h1>Skills</h1>
-    </Layout>
-  );
+  return <Skills />;
 };
 
 export default SkillsPage;

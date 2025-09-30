@@ -74,11 +74,14 @@
     "settings": "Settings"
   },
 
-  "Upload avatar image": "Upload avatar image",
-  "png, jpg or gif no more than 0.5MB": "png, jpg or gif no more than 0.5MB",
-  "A member since": "A member since",
-  "No Department": "No Department",
-  "No Position": "No Position",
+  "profile": {
+    "error": "User not found",
+    "uploadAvatar": "Upload avatar image",
+    "avatarParams": "png, jpg or gif no more than 0.5MB",
+    "date": "A member since",
+    "noDep": "No Department",
+    "noPos": "No Position"
+  },
 
   "Name": "Name",
   "Internal Name": "Internal Name",

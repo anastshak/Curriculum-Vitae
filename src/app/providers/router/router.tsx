@@ -5,6 +5,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ProtectedRoute } from '@app/providers/router/routes/ProtectedRoute';
 import { PublicRoute } from '@app/providers/router/routes/PublicRoute';
+import { Layout } from '@widgets/layout';
 import { ROUTES } from '@shared/consts/routes';
 import { Loader } from '@shared/ui/Loader';
 
@@ -18,7 +19,9 @@ const ResetPassword = lazy(() => import('@pages/reset-password'));
 const Users = lazy(() => import('@pages/users'));
 const ErrorPage = lazy(() => import('@pages/error'));
 const Skills = lazy(() => import('@pages/skills'));
-const Profile = lazy(() => import('@pages/profile'));
+const Languages = lazy(() => import('@pages/languages'));
+const Profile = lazy(() => import('@pages/user-details/Profile'));
+const UserDetailsLayout = lazy(() => import('@pages/user-details/UserDetailsLayout'));
 
 export const routerRoutes = [
   {
@@ -34,11 +37,37 @@ export const routerRoutes = [
       },
       {
         path: ROUTES.USER.PROFILE,
-        element: <Profile />,
+        element: <UserDetailsLayout />,
+        children: [
+          {
+            path: ROUTES.USER.PROFILE,
+            element: <Profile />,
+          },
+          {
+            path: ROUTES.USER.SKILLS,
+            element: <Skills />,
+          },
+          {
+            path: ROUTES.USER.LANGUAGES,
+            element: <Languages />,
+          },
+        ],
       },
       {
         path: ROUTES.SKILLS,
-        element: <Skills />,
+        element: (
+          <Layout>
+            <Skills />
+          </Layout>
+        ),
+      },
+      {
+        path: ROUTES.LANGUAGES,
+        element: (
+          <Layout>
+            <Languages />
+          </Layout>
+        ),
       },
     ],
   },

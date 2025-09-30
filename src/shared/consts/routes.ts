@@ -12,8 +12,8 @@ export const ROUTES = {
   USER: {
     ROOT: '/users',
     PROFILE: '/users/:userId',
-    SKILLS: '/users/skills',
-    LANGUAGES: '/users/languages',
+    SKILLS: '/users/:userId/skills',
+    LANGUAGES: '/users/:userId/languages',
     CVS: '/users/cvs',
   },
 
