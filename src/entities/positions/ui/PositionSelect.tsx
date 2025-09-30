@@ -13,7 +13,7 @@ export const PositionSelect = ({ value, onChange, loading }: Props) => {
 
   return (
     <BaseSelect
-      label={'Position'}
+      label={'formFields.position'}
       value={value}
       onChange={onChange}
       loading={loading}

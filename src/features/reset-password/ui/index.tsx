@@ -67,21 +67,21 @@ export const ResetPasswordForm = () => {
         color: 'text.secondary',
       }}
     >
-      {t('Back to log in')}
+      {t('auth.resetPassword.backToLogin')}
     </Button>
   );
 
   return (
     <BaseForm
-      title="Set a new password"
-      subtitle="Almost done! Now create a new password"
-      submitLabel="Submit"
-      loadingLabel="Wait"
+      title="auth.resetPassword.title"
+      subtitle="auth.resetPassword.subtitle"
+      submitLabel="auth.resetPassword.button"
+      loadingLabel="buttonMessages.wait"
       form={form}
       onSubmit={onSubmit}
       footer={footer}
       fields={fields}
-      successMessage="Password has been updated"
+      successMessage="auth.resetPassword.successMessage"
       isSuccess={isSubmit}
     />
   );

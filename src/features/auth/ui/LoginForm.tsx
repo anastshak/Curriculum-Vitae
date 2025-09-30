@@ -33,17 +33,17 @@ export const LoginForm = () => {
 
   return (
     <AuthForm
-      title="Welcome back"
-      subtitle="Hello again! Log in to continue"
-      submitLabel="Log in"
-      loadingLabel="Wait"
+      title="auth.login.title"
+      subtitle="auth.login.subtitle"
+      submitLabel="auth.login.button"
+      loadingLabel="buttonMessages.wait"
       onSubmit={handleLogin}
       footer={
         <Button
           onClick={() => navigate(ROUTES.FORGOT_PASSWORD)}
           sx={{ py: 1.5, fontSize: '14px', fontWeight: 500, color: 'text.secondary' }}
         >
-          {t('Forgot password')}
+          {t('auth.forgotPassword.title')}
         </Button>
       }
     />

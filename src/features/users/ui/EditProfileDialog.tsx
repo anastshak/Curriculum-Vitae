@@ -69,23 +69,23 @@ export const EditProfileDialog = ({ editingUser, setEditingUser }: Props) => {
   return (
     <Dialog open={!!editingUser} onClose={handleClose} maxWidth="md" fullWidth>
       <form onSubmit={handleUpdate}>
-        <DialogTitle>{t('Update user')}</DialogTitle>
+        <DialogTitle>{t('titles.updateUser')}</DialogTitle>
 
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <BaseTextField name={'Email'} value={editingUser.email} disabled />
+            <BaseTextField name={'formFields.email'} value={editingUser.email} disabled />
 
-            <BaseTextField name={'Password'} value="********" disabled />
+            <BaseTextField name={'formFields.password'} value="********" disabled />
 
             <BaseTextField
-              name={'First Name'}
+              name={'formFields.firstName'}
               value={editingUser.firstName}
               onChange={(event) => handleChange('firstName', event.target.value)}
               loading={loading}
             />
 
             <BaseTextField
-              name={'Last Name'}
+              name={'formFields.lastName'}
               value={editingUser.lastName}
               onChange={(event) => handleChange('lastName', event.target.value)}
               loading={loading}
@@ -103,19 +103,19 @@ export const EditProfileDialog = ({ editingUser, setEditingUser }: Props) => {
               loading={loading}
             />
 
-            <BaseTextField name={'Role'} value="Employee" disabled />
+            <BaseTextField name={'formFields.role'} value="Employee" disabled />
           </Grid>
         </DialogContent>
 
         <DialogActions sx={{ mb: 2, mr: 2 }}>
-          <Button onClick={handleClose}>{t('Cancel')}</Button>
+          <Button onClick={handleClose}>{t('buttonMessages.cancel')}</Button>
           <Button
             type="submit"
             variant="contained"
             disabled={loading}
             startIcon={loading ? <CircularProgress size={16} /> : null}
           >
-            {loading ? t('Wait...') : t('Update')}
+            {loading ? t('buttonMessages.wait') : t('buttonMessages.update')}
           </Button>
         </DialogActions>
       </form>

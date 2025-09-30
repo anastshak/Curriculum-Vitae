@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation, useParams } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { Typography } from '@mui/material';
@@ -10,6 +11,7 @@ import { PATH_MAPPING } from '../consts/path-map';
 export const useBreadcrumbs = () => {
   const location = useLocation();
   const params = useParams<{ userId?: string }>();
+  const { t } = useTranslation();
 
   const { data, loading } = useUser(params.userId);
   const username = data?.user.profile.full_name || data?.user.email;
@@ -32,7 +34,7 @@ export const useBreadcrumbs = () => {
         if (mapping?.queryKey === 'user') {
           crumbs.push({
             label: loading ? (
-              'Loading...'
+              t('buttonMessages.loading')
             ) : (
               <Typography component="span" sx={{ display: 'inline-flex', alignItems: 'center', color: 'primary.main' }}>
                 <PersonOutlineIcon fontSize="small" sx={{ mr: 0.5 }} />
@@ -54,7 +56,7 @@ export const useBreadcrumbs = () => {
     });
 
     return crumbs;
-  }, [pathnames, params, loading, username]);
+  }, [pathnames, params, loading, t, username]);
 
   return breadcrumbs;
 };

@@ -33,17 +33,17 @@ export const SignupForm = () => {
 
   return (
     <AuthForm
-      title="Register now"
-      subtitle="Welcome! Sign up to continue."
-      submitLabel="Create account"
-      loadingLabel="Creating account"
+      title="auth.signup.title"
+      subtitle="auth.signup.subtitle"
+      submitLabel="auth.signup.button"
+      loadingLabel="auth.signup.loading"
       onSubmit={handleSignup}
       footer={
         <Button
           onClick={() => navigate(ROUTES.AUTH.LOGIN)}
           sx={{ py: 1.5, fontSize: '14px', fontWeight: 500, color: 'text.secondary' }}
         >
-          {t('I have an account')}
+          {t('auth.haveAccount')}
         </Button>
       }
     />

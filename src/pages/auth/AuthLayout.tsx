@@ -13,8 +13,8 @@ const AuthLayout = () => {
   return (
     <>
       <Tabs value={location.pathname} centered component="header">
-        <Tab value={ROUTES.AUTH.LOGIN} label={t('Login')} component={NavLink} to={ROUTES.AUTH.LOGIN} />
-        <Tab value={ROUTES.AUTH.SIGNUP} label={t('Signup')} component={NavLink} to={ROUTES.AUTH.SIGNUP} />
+        <Tab value={ROUTES.AUTH.LOGIN} label={t('auth.login.tab')} component={NavLink} to={ROUTES.AUTH.LOGIN} />
+        <Tab value={ROUTES.AUTH.SIGNUP} label={t('auth.signup.tab')} component={NavLink} to={ROUTES.AUTH.SIGNUP} />
       </Tabs>
       <Suspense fallback={<Loader />}>
         <Outlet />

@@ -82,19 +82,19 @@ export const SidebarProfileItem = ({ isCollapsed }: SidebarProfileItemProps) => 
       >
         <MenuItem onClick={handleProfileClick}>
           <AccountCircle sx={{ mr: 1.5 }} />
-          {t('Profile')}
+          {t('navigation.profile')}
         </MenuItem>
 
         <MenuItem onClick={handleSettingsClick}>
           <Settings sx={{ mr: 1.5 }} />
-          {t('Settings')}
+          {t('navigation.settings')}
         </MenuItem>
 
         <Divider />
 
         <MenuItem onClick={handleLogoutClick}>
           <Logout sx={{ mr: 1.5 }} />
-          {t('Logout')}
+          {t('auth.logout')}
         </MenuItem>
       </Menu>
     </>

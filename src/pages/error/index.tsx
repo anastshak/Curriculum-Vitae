@@ -33,15 +33,15 @@ const PageNotFound = () => {
         </Typography>
 
         <Typography variant="h5" component="h2" gutterBottom>
-          {t('Oops!')}
+          {t('errorPage.subtitle')}
         </Typography>
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-          {t('Page not found')}
+          {t('errorPage.title')}
         </Typography>
 
         <Button variant="contained" size="large" startIcon={<HomeIcon />} onClick={() => navigate('/')}>
-          {t('Back Home')}
+          {t('errorPage.button')}
         </Button>
       </Box>
     </Container>

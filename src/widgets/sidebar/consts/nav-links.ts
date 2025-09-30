@@ -5,22 +5,22 @@ import { ROUTES } from '@shared/consts/routes';
 export const sidebarLinks = [
   {
     IconComponent: Group,
-    name: 'employees',
+    name: 'navigation.employees',
     to: ROUTES.USER.ROOT,
   },
   {
     IconComponent: TrendingUp,
-    name: 'skills',
+    name: 'navigation.skills',
     to: ROUTES.SKILLS,
   },
   {
     IconComponent: Translate,
-    name: 'languages',
+    name: 'navigation.languages',
     to: ROUTES.LANGUAGES,
   },
   {
     IconComponent: ContactPageOutlined,
-    name: 'cvs',
+    name: 'navigation.cvs',
     to: ROUTES.CVS,
   },
 ];

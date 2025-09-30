@@ -53,13 +53,13 @@ export const UserRowMenu = ({ user, setEditingUser }: UserRowMenuProps) => {
         autoFocus={false}
       >
         <MenuItem onClick={handleProfileClick}>
-          <AccountCircle sx={{ mr: 1.5 }} /> {t('Profile')}
+          <AccountCircle sx={{ mr: 1.5 }} /> {t('navigation.profile')}
         </MenuItem>
 
         <Divider />
 
         <MenuItem onClick={handleEditClick}>
-          <Edit sx={{ mr: 1.5 }} /> {t('Edit profile')}
+          <Edit sx={{ mr: 1.5 }} /> {t('titles.editProfile')}
         </MenuItem>
       </Menu>
     </>

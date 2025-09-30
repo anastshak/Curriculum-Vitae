@@ -1,71 +1,83 @@
 {
-  "Login": "Войти",
-  "Signup": "Создать",
-  "Register now": "Зарегистрируйтесь",
-  "Welcome! Sign up to continue.": "Добро пожаловать! Создайте аккаунт, чтобы продолжить.",
-  "Email": "Почта",
-  "Password": "Пароль",
-  "Create account": "Создать аккаунт",
-  "Creating account": "Создание аккаунта...",
-  "I have an account": "У меня есть аккаунт",
-  "Email is required": "Введите почту",
-  "Invalid email format": "Некорректный формат почты",
-  "Password is required": "Введите пароль",
-  "At least 5 characters": "Пароль должен содержать минимум 5 символов",
-  "Welcome back": "С возвращением",
-  "Hello again! Log in to continue": "Рады вас видеть! Войдите, чтобы продолжить",
-  "Wait": "Подождите...",
-  "Log in": "Войти",
+  "auth": {
+    "login": {
+      "title": "С возвращением",
+      "subtitle": "Рады вас видеть! Войдите, чтобы продолжить",
+      "button": "Войти",
+      "tab": "Войти"
+    },
+    "signup": {
+      "title": "Зарегистрируйтесь",
+      "subtitle": "Добро пожаловать! Создайте аккаунт, чтобы продолжить",
+      "button": "Создать аккаунт",
+      "loading": "Создание аккаунта...",
+      "tab": "Создать"
+    },
+    "forgotPassword": {
+      "title": "Забыли пароль",
+      "subtitle": "Мы вышлем вам электронное письмо с дальнейшими инструкциями",
+      "button": "Сбросить пароль",
+      "successMessage": "Проверьте свою почту. Вы будете перенаправлены на страницу Входа через 5 секунд."
+    },
+    "resetPassword": {
+      "title": "Установите новый пароль",
+      "subtitle": "Почти готово! Теперь создайте новый пароль",
+      "button": "Подтвердить",
+      "successMessage": "Пароль был обновлен",
+      "backToLogin": "Вернуться для входа"
+    },
+    "validation": {
+      "emailRequired": "Введите почту",
+      "emailInvalidFormat": "Некорректный формат почты",
+      "passwordRequired": "Введите пароль",
+      "passwordLength": "Пароль должен содержать минимум 5 символов"
+    },
+    "logout": "Выйти",
+    "haveAccount": "У меня есть аккаунт"
+  },
 
-  "Forgot password": "Забыли пароль",
-  "We will sent you an email with further instructions": "Мы вышлем вам электронное письмо с дальнейшими инструкциями",
-  "Reset password": "Сбросить пароль",
-  "Check your email. You will be redirected to login page in 5 seconds.": "Проверьте свою почту. Вы будете перенаправлены на страницу Входа через 5 секунд.",
+  "buttonMessages": {
+    "wait": "Подождите...",
+    "loading": "Загрузка...",
+    "cancel": "Отмена",
+    "update": "Обновить",
+    "search": "Поиск"
+  },
 
-  "Set a new password": "Установите новый пароль",
-  "Almost done! Now create a new password": "Почти готово! Теперь создайте новый пароль",
-  "Submit": "Подтвердить",
-  "Back to log in": "Вернуться для входа",
-  "Password has been updated": "Паролт был обновлен",
+  "formFields": {
+    "email": "Почта",
+    "password": "Пароль",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "department": "Отдел",
+    "position": "Должность",
+    "role": "Права доступа"
+  },
 
-  "Oops!": "Упс!",
-  "Page not found": "Страница не найдена :(",
-  "Back Home": "Вернуться на главную",
+  "titles": {
+    "updateUser": "Обновить пользователя",
+    "editProfile": "Редактировать"
+  },
 
-  "Home": "Главная",
-  "employees": "Сотрудники",
-  "users": "Сотрудники",
-  "projects": "Проекты",
-  "cvs": "Резюме",
-  "departments": "Отделы",
-  "positions": "Должности",
-  "skills": "Навыки",
-  "languages": "Языки",
-  "profile": "Профиль",
+  "errorPage": {
+    "title": "Страница не найдена :(",
+    "subtitle": "Упс!",
+    "button": "Вернуться на главную"
+  },
 
-  "Profile": "Профиль",
-  "Settings": "Настройки",
-  "Logout": "Выйти",
-
-  "Search": "Поиск",
-  "Confirm": "Подтвердить",
-  "Cancel": "Отмена",
-  "Create": "Создать",
-  "Update": "Обновить",
-  "Delete": "Удалить",
-  "Edit profile": "Редактировать",
-  "Are you sure you want to delete user": "Вы уверены, что хотите удалить пользователя?",
-
-  "First Name": "Имя",
-  "Last Name": "Фамилия",
-  "Department": "Отдел",
-  "Position": "Должность",
-  "Role": "Права доступа",
+  "navigation": {
+    "employees": "Сотрудники",
+    "skills": "Навыки",
+    "languages": "Языки",
+    "cvs": "Резюме",
+    "profile": "Профиль",
+    "settings": "Настройки"
+  },
 
   "Upload avatar image": "Загрузите изображение аватара",
   "png, jpg or gif no more than 0.5MB": "png, jpg or gif не больше 0.5МБ",
   "A member since": "Аккаунт был создан",
-  "No Department": "Отден не выбран",
+  "No Department": "Отдел не выбран",
   "No Position": "Должность не выбрана",
 
   "Name": "Имя",

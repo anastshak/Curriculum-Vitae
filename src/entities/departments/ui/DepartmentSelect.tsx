@@ -13,7 +13,7 @@ export const DepartmentSelect = ({ value, onChange, loading }: Props) => {
 
   return (
     <BaseSelect
-      label={'Department'}
+      label={'formFields.department'}
       value={value}
       onChange={onChange}
       loading={loading}

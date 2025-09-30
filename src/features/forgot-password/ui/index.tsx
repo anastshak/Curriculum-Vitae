@@ -63,21 +63,21 @@ export const ForgotPasswordForm = () => {
         color: 'text.secondary',
       }}
     >
-      {t('Cancel')}
+      {t('buttonMessages.cancel')}
     </Button>
   );
 
   return (
     <BaseForm
-      title="Forgot password"
-      subtitle="We will sent you an email with further instructions"
-      submitLabel="Reset password"
-      loadingLabel="Wait"
+      title="auth.forgotPassword.title"
+      subtitle="auth.forgotPassword.subtitle"
+      submitLabel="auth.forgotPassword.button"
+      loadingLabel="buttonMessages.wait"
       form={form}
       onSubmit={onSubmit}
       footer={footer}
       fields={fields}
-      successMessage="Check your email. You will be redirected to login page in 5 seconds."
+      successMessage="auth.forgotPassword.successMessage"
       isSuccess={isSent}
     />
   );

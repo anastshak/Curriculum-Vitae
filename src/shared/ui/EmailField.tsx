@@ -11,7 +11,7 @@ export const EmailField = ({ register, error, helperText, ...props }: EmailField
 
   return (
     <TextField
-      label={t('Email')}
+      label={t('formFields.email')}
       type="email"
       autoComplete="email"
       placeholder="example@mail.com"
