@@ -4,15 +4,15 @@ import { User } from 'cv-graphql';
 interface AvatarProps {
   user: User;
   isProfile?: boolean;
+  color?: string | null;
 }
 
-export const AvatarItem = ({ user, isProfile }: AvatarProps) => {
+export const AvatarItem = ({ user, isProfile, color = null }: AvatarProps) => {
   const userAvatar = user?.profile.avatar;
   const userAvatarLetter = (user?.profile.first_name || user?.email)?.[0]?.toUpperCase();
 
   const size = isProfile ? 120 : 40;
   const fontSize = isProfile ? 40 : 20;
-  const color = isProfile ? null : 'primary.main';
 
   return (
     <>

@@ -52,7 +52,7 @@ export const SidebarProfileItem = ({ isCollapsed }: SidebarProfileItemProps) => 
   return (
     <>
       <Styled.Box onClick={handleOpenMenu}>
-        {currUser && <AvatarItem user={currUser} />}
+        {currUser && <AvatarItem user={currUser} color={'primary.main'} />}
 
         {!isCollapsed && (
           <Typography noWrap sx={{ ml: 1 }}>
