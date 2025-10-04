@@ -1,6 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Grid } from '@mui/material';
+import { Close } from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  IconButton,
+} from '@mui/material';
 import { UserRole } from 'cv-graphql';
 
 import { DepartmentSelect } from '@entities/departments';
@@ -68,7 +79,14 @@ export const EditProfileDialog = ({ editingUser, setEditingUser }: Props) => {
   return (
     <Dialog open={!!editingUser} onClose={handleClose} maxWidth="md" fullWidth>
       <form onSubmit={handleUpdate}>
-        <DialogTitle>{t('titles.updateUser')}</DialogTitle>
+        <Box display="flex" alignItems="center" justifyContent="space-between" pr={1}>
+          <DialogTitle sx={{ m: 0, p: 2 }}>{t('titles.updateUser')}</DialogTitle>
+          <IconButton onClick={handleClose} disabled={loading}>
+            <Close />
+          </IconButton>
+        </Box>
+
+        {/* <DialogTitle>{t('titles.updateUser')}</DialogTitle> */}
 
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
