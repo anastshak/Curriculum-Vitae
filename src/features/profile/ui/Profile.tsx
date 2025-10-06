@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 
 import { useCurrentUser } from '@features/auth';
+import { AvatarUpdate } from '@features/avatar';
 import { EditProfileForm } from '@features/edit-profile';
 import { formatMemberSince } from '@shared/lib/formatDate';
 import { mapEditUserData } from '@shared/lib/mapEditUserData';
 import { Loader } from '@shared/ui/Loader';
 
-import { useUser } from '../../api';
-import { AvatarUpdate } from '../AvatarUpdate';
+import { useUser } from '../api';
 import { editFormWrapper } from './Profile.styles';
 
 export const Profile = () => {
