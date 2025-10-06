@@ -17,7 +17,6 @@ type UpdateProfileResult = {
 export function useUpdateProfile() {
   return useMutation<UpdateProfileResult, UpdateProfileArgs>(UPDATE_PROFILE, {
     refetchQueries: [{ query: USERS_QUERY }],
-    awaitRefetchQueries: true,
     onCompleted: (data) => {
       if (data?.updateProfile) {
         const prevUser = userVar();

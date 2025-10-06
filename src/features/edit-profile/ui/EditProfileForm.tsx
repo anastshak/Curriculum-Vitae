@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Button, CircularProgress, DialogActions, DialogContent, Grid } from '@mui/material';
@@ -39,20 +38,10 @@ export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: 
   const {
     handleSubmit,
     formState: { isDirty },
-    reset,
     watch,
   } = methods;
 
-  useEffect(() => {
-    if (editingUser) {
-      reset({
-        firstName: editingUser.firstName,
-        lastName: editingUser.lastName,
-        departmentId: editingUser.department?.id || '',
-        positionId: editingUser.position?.id || '',
-      });
-    }
-  }, [editingUser, reset]);
+  const formValues = watch();
 
   if (!editingUser) return null;
 
@@ -79,14 +68,11 @@ export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: 
         },
       });
 
-      reset(values);
       onClose?.();
     } catch (err) {
       console.error('Update failed', err);
     }
   };
-
-  const formValues = watch();
 
   return (
     <FormProvider {...methods}>
@@ -136,6 +122,7 @@ export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: 
                 {t('buttonMessages.cancel')}
               </Button>
             )}
+
             <Button
               type="submit"
               variant="contained"
