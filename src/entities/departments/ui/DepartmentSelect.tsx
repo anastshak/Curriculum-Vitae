@@ -4,20 +4,23 @@ import { useDepartments } from '../api';
 
 type Props = {
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   loading: boolean;
+  isOwner?: boolean;
 };
 
-export const DepartmentSelect = ({ value, onChange, loading }: Props) => {
+export const DepartmentSelect = ({ value, onChange, loading, isOwner = true }: Props) => {
   const { data } = useDepartments();
+
+  const options = data?.departments.map((d) => ({ id: d.id, label: d.name })) || [];
 
   return (
     <BaseSelect
       label={'formFields.department'}
       value={value}
       onChange={onChange}
-      loading={loading}
-      options={data?.departments.map((d) => ({ id: d.id, label: d.name })) || []}
+      loading={loading || !isOwner}
+      options={options}
     />
   );
 };
