@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { useUser } from '@features/profile/api';
 
@@ -14,49 +14,40 @@ export const useBreadcrumbs = () => {
   const { t } = useTranslation();
 
   const { data, loading } = useUser(params.userId);
-  const username = data?.user.profile.full_name || data?.user.email;
+  const username = data?.user?.profile?.full_name ?? data?.user?.email ?? null;
 
   const pathnames = location.pathname.split('/').filter(Boolean);
 
+  const templateSegments = pathnames.map((seg) => (Object.values(params).includes(seg) ? ':id' : seg));
+
   const breadcrumbs = useMemo(() => {
     const crumbs: Array<{ label: React.ReactNode; path: string }> = [];
-    let currentPath = '';
 
-    pathnames.forEach((segment) => {
-      currentPath += `/${segment}`;
+    for (let i = 0; i < pathnames.length; i += 1) {
+      const currentPath = '/' + pathnames.slice(0, i + 1).join('/');
+      const currentTemplate = '/' + templateSegments.slice(0, i + 1).join('/');
 
-      const isParam = Object.values(params).includes(segment);
+      const mapping = PATH_MAPPING[currentTemplate];
+      if (!mapping) continue;
 
-      if (isParam) {
-        const pathTemplate = currentPath.replace(`/${segment}`, '/:id');
-        const mapping = PATH_MAPPING[pathTemplate];
+      if (mapping.queryKey === 'user') {
+        const label = loading ? (
+          t('buttonMessages.loading')
+        ) : (
+          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', color: 'primary.main' }}>
+            <PersonOutlineIcon fontSize="small" sx={{ mr: 0.5 }} />
+            {username ?? t('breadcrumbs.unknownUser')}
+          </Box>
+        );
 
-        if (mapping?.queryKey === 'user') {
-          crumbs.push({
-            label: loading ? (
-              t('buttonMessages.loading')
-            ) : (
-              <Typography component="span" sx={{ display: 'inline-flex', alignItems: 'center', color: 'primary.main' }}>
-                <PersonOutlineIcon fontSize="small" sx={{ mr: 0.5 }} />
-                {username ?? 'Unknown user'}
-              </Typography>
-            ),
-            path: currentPath,
-          });
-        }
+        crumbs.push({ label, path: currentPath });
       } else {
-        const mapping = PATH_MAPPING[currentPath];
-        if (mapping) {
-          crumbs.push({
-            label: mapping.label,
-            path: currentPath,
-          });
-        }
+        crumbs.push({ label: mapping.label, path: currentPath });
       }
-    });
+    }
 
     return crumbs;
-  }, [pathnames, params, loading, t, username]);
+  }, [pathnames, templateSegments, loading, username, t]);
 
   return breadcrumbs;
 };
