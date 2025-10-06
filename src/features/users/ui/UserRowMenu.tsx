@@ -6,13 +6,12 @@ import { Divider, IconButton, Menu, MenuItem } from '@mui/material';
 import { User } from 'cv-graphql';
 
 import { ROUTES } from '@shared/consts/routes';
-
-import { mapUserData } from '../lib/mapUserRow';
-import { EditUserForm } from '../lib/types';
+import { mapEditUserData } from '@shared/lib/mapEditUserData';
+import { EditUserData } from '@shared/lib/types/EditUserData';
 
 type UserRowMenuProps = {
   user: User;
-  setEditingUser: (user: EditUserForm) => void;
+  setEditingUser: (user: EditUserData) => void;
 };
 
 export const UserRowMenu = ({ user, setEditingUser }: UserRowMenuProps) => {
@@ -34,7 +33,7 @@ export const UserRowMenu = ({ user, setEditingUser }: UserRowMenuProps) => {
   };
 
   const handleEditClick = () => {
-    setEditingUser(mapUserData(user));
+    setEditingUser(mapEditUserData(user));
     handleClose();
   };
 

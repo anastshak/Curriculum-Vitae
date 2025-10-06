@@ -5,12 +5,13 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useCurrentUser } from '@features/auth';
-import { EditProfileDialog } from '@features/profile';
+import { EditProfileDialog } from '@features/edit-profile';
+import { EditUserData } from '@shared/lib/types/EditUserData';
 import { Loader } from '@shared/ui/Loader';
 
 import { useUsers } from '../api';
 import { mapUsers } from '../lib/mapUsers';
-import { EditUserForm, UserTableRow } from '../lib/types';
+import { UserTableRow } from '../lib/types';
 import { Searchbar } from './Searchbar';
 import { getUsersTableColumns } from './UsersTableColumns';
 
@@ -19,7 +20,7 @@ export const UsersTable = () => {
   const { t } = useTranslation();
 
   const [search, setSearch] = useState('');
-  const [editingUser, setEditingUser] = useState<EditUserForm | null>(null);
+  const [editingUser, setEditingUser] = useState<EditUserData | null>(null);
 
   const { data, loading } = useUsers();
   const currentUser = useCurrentUser();
@@ -69,6 +70,7 @@ export const UsersTable = () => {
           }}
         />
       </Box>
+
       <EditProfileDialog editingUser={editingUser} setEditingUser={setEditingUser} />
     </>
   );

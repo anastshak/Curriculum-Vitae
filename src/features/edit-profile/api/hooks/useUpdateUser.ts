@@ -25,10 +25,7 @@ export function useUpdateUser() {
         if (prevUser) {
           const updatedUser = {
             ...prevUser,
-            profile: {
-              ...prevUser.profile,
-              ...data.updateUser,
-            },
+            ...data.updateUser,
           };
 
           updateUserData(updatedUser);

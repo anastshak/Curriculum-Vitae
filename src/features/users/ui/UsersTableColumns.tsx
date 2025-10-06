@@ -3,16 +3,17 @@ import { Box, IconButton } from '@mui/material';
 import { GridColDef } from '@mui/x-data-grid';
 
 import { ROUTES } from '@shared/consts/routes';
+import { EditUserData } from '@shared/lib/types/EditUserData';
 import { AvatarItem } from '@shared/ui/Avatar';
 
-import { EditUserForm, UserTableRow } from '../lib/types';
+import { UserTableRow } from '../lib/types';
 import { UserRowMenu } from './UserRowMenu';
 
 export const getUsersTableColumns = (
   t: (key: string) => string,
   currentUserId: string | undefined,
   navigate: (path: string) => void,
-  setEditingUser: (user: EditUserForm) => void,
+  setEditingUser: (user: EditUserData) => void,
 ): GridColDef<UserTableRow>[] => [
   {
     field: 'avatar',
