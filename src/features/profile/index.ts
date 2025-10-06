@@ -1,2 +1,1 @@
-export { EditProfileDialog } from './ui/EditProfileDialog';
-export { Profile } from './ui/Profile';
+export { Profile } from './ui/Profile/Profile';
