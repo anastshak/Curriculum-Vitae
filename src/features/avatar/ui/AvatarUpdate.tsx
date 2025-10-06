@@ -1,8 +1,13 @@
+import { ChangeEvent, DragEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box } from '@mui/material';
+import { Close, FileUploadOutlined } from '@mui/icons-material';
+import { Badge, Box, CircularProgress, IconButton, Typography } from '@mui/material';
 import { User } from 'cv-graphql';
 
 import { AvatarItem } from '@shared/ui/Avatar';
+
+import { useAvatarDelete, useAvatarUpload } from '../api';
+import { fileToBase64 } from '../lib/fileToBase64';
 
 type Props = {
   user: User;
@@ -12,10 +17,135 @@ type Props = {
 export const AvatarUpdate = ({ user, isOwner }: Props) => {
   const { t } = useTranslation();
 
+  const [uploadAvatar, { loading: uploading }] = useAvatarUpload();
+  const [deleteAvatar, { loading: deleting }] = useAvatarDelete();
+  const loading = uploading || deleting;
+
+  const handleUpload = (files: FileList | null) => {
+    const file = files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (file.size > 500 * 1024) {
+      alert(t('File size should not exceed 0.5MB'));
+      return;
+    }
+
+    const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'];
+    if (!allowedTypes.includes(file.type)) {
+      alert(t('Only PNG, JPG and GIF files are allowed'));
+      return;
+    }
+
+    fileToBase64(file).then((avatar) => {
+      uploadAvatar({
+        variables: {
+          avatar: {
+            userId: user.id,
+            ...avatar,
+          },
+        },
+      }).catch((error) => {
+        console.error('Upload failed', error);
+        alert(t('Upload failed'));
+      });
+    });
+  };
+
+  const handleDelete = () => {
+    if (window.confirm(t('Are you sure you want to delete the avatar?'))) {
+      deleteAvatar({
+        variables: {
+          avatar: {
+            userId: user.id,
+          },
+        },
+      }).catch((error) => {
+        console.error('Delete failed', error);
+        alert(t('Delete failed'));
+      });
+    }
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    handleUpload(event.target.files);
+  };
+
+  const handleDragOver = (event: DragEvent) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event: DragEvent) => {
+    event.preventDefault();
+    handleUpload(event.dataTransfer.files);
+  };
+
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" my={4}>
-      <AvatarItem user={user} isProfile />
-      {isOwner && <Box ml={6}>Owner!!!</Box>}
+    <Box display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" my={4}>
+      <Badge
+        badgeContent={
+          user.profile.avatar &&
+          isOwner && (
+            <IconButton
+              disabled={loading}
+              onClick={handleDelete}
+              size="small"
+              sx={{
+                bgcolor: 'background.paper',
+                '&:hover': { bgcolor: 'grey.100' },
+              }}
+            >
+              {loading ? <CircularProgress size={16} /> : <Close />}
+            </IconButton>
+          )
+        }
+        overlap="circular"
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <AvatarItem user={user} isProfile />
+      </Badge>
+
+      {isOwner && (
+        <Box
+          component="div"
+          ml={6}
+          textAlign="center"
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+          sx={{
+            cursor: 'pointer',
+          }}
+        >
+          <input
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif"
+            disabled={loading}
+            onChange={handleChange}
+            style={{
+              display: 'none',
+            }}
+            id="avatar-upload-input"
+          />
+
+          <label htmlFor="avatar-upload-input" style={{ cursor: 'pointer' }}>
+            <Typography variant="h6" component="div" display="flex" alignItems="flex-end">
+              <FileUploadOutlined fontSize="large" sx={{ mr: 2 }} />
+              {t('Upload avatar image')}
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary" mt={1}>
+              {t('PNG, JPG or GIF no more than 0.5MB')}
+            </Typography>
+
+            {loading && <CircularProgress size={24} sx={{ mt: 1 }} />}
+          </label>
+        </Box>
+      )}
     </Box>
   );
 };
