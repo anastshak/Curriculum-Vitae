@@ -76,11 +76,17 @@
 
   "profile": {
     "error": "User not found",
-    "uploadAvatar": "Upload avatar image",
-    "avatarParams": "png, jpg or gif no more than 0.5MB",
     "date": "A member since",
-    "noDep": "No Department",
-    "noPos": "No Position"
+    "uploadAvatar": "Upload avatar image",
+    "avatarParams": "PNG, JPG or GIF no more than 0.5MB",
+    "avatarMsg": {
+      "size": "File size should not exceed 0.5MB",
+      "types": "Only PNG, JPG and GIF files are allowed",
+      "uploadSuccess": "Avatar uploaded successfully",
+      "uploadError": "Upload failed",
+      "deleteSuccess": "Avatar deleted successfully",
+      "deleteError": "Delete failed"
+    }
   },
 
   "Name": "Name",

@@ -4,6 +4,7 @@ import { Close, FileUploadOutlined } from '@mui/icons-material';
 import { Badge, Box, CircularProgress, IconButton, Typography } from '@mui/material';
 import { User } from 'cv-graphql';
 
+import { useNotification } from '@shared/config/notification';
 import { AvatarItem } from '@shared/ui/Avatar';
 
 import { useAvatarDelete, useAvatarUpload } from '../api';
@@ -16,6 +17,7 @@ type Props = {
 
 export const AvatarUpdate = ({ user, isOwner }: Props) => {
   const { t } = useTranslation();
+  const { showNotification } = useNotification();
 
   const [uploadAvatar, { loading: uploading }] = useAvatarUpload();
   const [deleteAvatar, { loading: deleting }] = useAvatarDelete();
@@ -23,50 +25,32 @@ export const AvatarUpdate = ({ user, isOwner }: Props) => {
 
   const handleUpload = (files: FileList | null) => {
     const file = files?.[0];
-
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
     if (file.size > 500 * 1024) {
-      alert(t('File size should not exceed 0.5MB'));
+      showNotification(t('profile.avatarMsg.size'), 'warning');
       return;
     }
 
     const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'];
     if (!allowedTypes.includes(file.type)) {
-      alert(t('Only PNG, JPG and GIF files are allowed'));
+      showNotification(t('profile.avatarMsg.types'), 'error');
       return;
     }
 
     fileToBase64(file).then((avatar) => {
       uploadAvatar({
-        variables: {
-          avatar: {
-            userId: user.id,
-            ...avatar,
-          },
-        },
-      }).catch((error) => {
-        console.error('Upload failed', error);
-        alert(t('Upload failed'));
-      });
+        variables: { avatar: { userId: user.id, ...avatar } },
+      })
+        .then(() => showNotification(t('profile.avatarMsg.uploadSuccess'), 'success'))
+        .catch(() => showNotification(t('profile.avatarMsg.uploadError'), 'error'));
     });
   };
 
   const handleDelete = () => {
-    if (window.confirm(t('Are you sure you want to delete the avatar?'))) {
-      deleteAvatar({
-        variables: {
-          avatar: {
-            userId: user.id,
-          },
-        },
-      }).catch((error) => {
-        console.error('Delete failed', error);
-        alert(t('Delete failed'));
-      });
-    }
+    deleteAvatar({ variables: { avatar: { userId: user.id } } })
+      .then(() => showNotification(t('profile.avatarMsg.deleteSuccess'), 'success'))
+      .catch(() => showNotification(t('profile.avatarMsg.deleteError'), 'error'));
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -135,11 +119,11 @@ export const AvatarUpdate = ({ user, isOwner }: Props) => {
           <label htmlFor="avatar-upload-input" style={{ cursor: 'pointer' }}>
             <Typography variant="h6" component="div" display="flex" alignItems="flex-end">
               <FileUploadOutlined fontSize="large" sx={{ mr: 2 }} />
-              {t('Upload avatar image')}
+              {t('profile.uploadAvatar')}
             </Typography>
 
             <Typography variant="body1" color="text.secondary" mt={1}>
-              {t('PNG, JPG or GIF no more than 0.5MB')}
+              {t('profile.avatarParams')}
             </Typography>
 
             {loading && <CircularProgress size={24} sx={{ mt: 1 }} />}
