@@ -13,8 +13,6 @@ type BaseSelectProps = {
 export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, options }: BaseSelectProps) => {
   const { t } = useTranslation();
 
-  const displayValue = options.length > 0 ? value : '';
-
   const handleChange = (event: SelectChangeEvent) => {
     if (isOwner) {
       onChange?.(event.target.value);
@@ -24,7 +22,13 @@ export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, op
   return (
     <FormControl fullWidth margin="none" sx={{ maxWidth: 410 }}>
       <InputLabel>{t(label)}</InputLabel>
-      <Select value={displayValue} label={t(label)} onChange={handleChange} disabled={loading || !isOwner} displayEmpty>
+      <Select
+        value={value}
+        label={t(label)}
+        onChange={handleChange}
+        disabled={loading || !isOwner}
+        displayEmpty={options.length === 0}
+      >
         {options.map((option) => (
           <MenuItem key={option.id} value={option.id}>
             {option.label}
