@@ -36,9 +36,13 @@ export const routerRoutes = [
         element: <Users />,
       },
       {
-        path: ROUTES.USER.PROFILE,
+        path: ROUTES.USER.DETAILS,
         element: <UserDetailsLayout />,
         children: [
+          {
+            index: true,
+            element: <Navigate to="profile" replace />,
+          },
           {
             path: ROUTES.USER.PROFILE,
             element: <Profile />,
