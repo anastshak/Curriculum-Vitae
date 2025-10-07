@@ -39,31 +39,36 @@ export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: 
 
   const onSubmit = async (values: FormValues) => {
     try {
-      await updateProfile({
-        variables: {
-          profile: {
-            userId: editingUser.id,
-            first_name: values.firstName,
-            last_name: values.lastName,
+      await Promise.all([
+        updateProfile({
+          variables: {
+            profile: {
+              userId: editingUser.id,
+              first_name: values.firstName,
+              last_name: values.lastName,
+            },
           },
-        },
-      });
-
-      await updateUser({
-        variables: {
-          user: {
-            userId: editingUser.id,
-            departmentId: values.departmentId,
-            positionId: values.positionId,
-            role: 'Employee' as UserRole,
+        }),
+        updateUser({
+          variables: {
+            user: {
+              userId: editingUser.id,
+              departmentId: values.departmentId,
+              positionId: values.positionId,
+              role: 'Employee' as UserRole,
+            },
           },
-        },
-      });
+        }),
+      ]);
 
       onClose?.();
     } catch (err) {
       console.error('Update failed', err);
     }
+  };
+
+  const handleFieldChange = (field: keyof FormValues, value: string) => {
+    methods.setValue(field, value, { shouldDirty: true });
   };
 
   return (
@@ -78,27 +83,27 @@ export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: 
             <BaseTextField
               name={'formFields.firstName'}
               value={formValues.firstName}
-              onChange={(event) => methods.setValue('firstName', event.target.value, { shouldDirty: true })}
+              onChange={(event) => handleFieldChange('firstName', event.target.value)}
               disabled={!isOwner || loading}
             />
 
             <BaseTextField
               name={'formFields.lastName'}
               value={formValues.lastName}
-              onChange={(event) => methods.setValue('lastName', event.target.value, { shouldDirty: true })}
+              onChange={(event) => handleFieldChange('lastName', event.target.value)}
               disabled={!isOwner || loading}
             />
 
             <DepartmentSelect
               value={formValues.departmentId}
-              onChange={(value) => methods.setValue('departmentId', value, { shouldDirty: true })}
+              onChange={(value) => handleFieldChange('departmentId', value)}
               loading={loading}
               isOwner={isOwner}
             />
 
             <PositionSelect
               value={formValues.positionId}
-              onChange={(value) => methods.setValue('positionId', value, { shouldDirty: true })}
+              onChange={(value) => handleFieldChange('positionId', value)}
               loading={loading}
               isOwner={isOwner}
             />
