@@ -3,16 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { AccountCircle, Edit, MoreVert } from '@mui/icons-material';
 import { Divider, IconButton, Menu, MenuItem } from '@mui/material';
-import { User } from 'cv-graphql';
 
 import { ROUTES } from '@shared/consts/routes';
 import { mapEditUserData } from '@shared/lib/mapEditUserData';
-import { EditUserData } from '@shared/lib/types/EditUserData';
 
-type UserRowMenuProps = {
-  user: User;
-  setEditingUser: (user: EditUserData) => void;
-};
+import { UserRowMenuProps } from '../lib/types';
 
 export const UserRowMenu = ({ user, setEditingUser }: UserRowMenuProps) => {
   const navigate = useNavigate();

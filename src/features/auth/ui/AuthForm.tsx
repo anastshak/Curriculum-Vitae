@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useForm, UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,14 +7,7 @@ import { BaseForm } from '@shared/ui/baseForm/BaseForm';
 import { EmailField } from '@shared/ui/EmailField';
 import { PasswordField } from '@shared/ui/PasswordField';
 
-type AuthFormProps = {
-  title: string;
-  subtitle: string;
-  submitLabel: string;
-  loadingLabel: string;
-  onSubmit: (data: AuthFormData) => Promise<void>;
-  footer?: ReactNode;
-};
+import { AuthFormProps } from '../lib/types';
 
 export const AuthForm = ({ title, subtitle, submitLabel, loadingLabel, onSubmit, footer }: AuthFormProps) => {
   const { t } = useTranslation();

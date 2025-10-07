@@ -5,18 +5,10 @@ import { UserRole } from 'cv-graphql';
 
 import { DepartmentSelect } from '@entities/departments';
 import { PositionSelect } from '@entities/positions';
-import { EditUserData } from '@shared/lib/types/EditUserData';
 import { BaseTextField } from '@shared/ui/BaseTextField';
 
 import { useUpdateProfile, useUpdateUser } from '../api';
-import { FormValues } from '../lib/types';
-
-interface EditProfileFormProps {
-  editingUser: EditUserData | null;
-  onClose?: () => void;
-  isOwner?: boolean;
-  mode?: 'dialog' | 'inline';
-}
+import { EditProfileFormProps, FormValues } from '../lib/types';
 
 export const EditProfileForm = ({ editingUser, onClose, isOwner = true, mode }: EditProfileFormProps) => {
   const { t } = useTranslation();

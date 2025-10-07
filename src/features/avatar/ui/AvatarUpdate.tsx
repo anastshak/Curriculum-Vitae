@@ -2,18 +2,13 @@ import { ChangeEvent, DragEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Close, FileUploadOutlined } from '@mui/icons-material';
 import { Badge, Box, CircularProgress, IconButton, Typography } from '@mui/material';
-import { User } from 'cv-graphql';
 
 import { useNotification } from '@shared/config/notification';
 import { AvatarItem } from '@shared/ui/Avatar';
 
 import { useAvatarDelete, useAvatarUpload } from '../api';
 import { fileToBase64 } from '../lib/fileToBase64';
-
-type Props = {
-  user: User;
-  isOwner: boolean;
-};
+import { Props } from '../lib/types';
 
 export const AvatarUpdate = ({ user, isOwner }: Props) => {
   const { t } = useTranslation();

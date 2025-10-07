@@ -2,16 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { Close } from '@mui/icons-material';
 import { Box, Dialog, DialogTitle, IconButton } from '@mui/material';
 
-import { EditUserData } from '@shared/lib/types/EditUserData';
-
+import { DialogProps } from '../lib/types';
 import { EditProfileForm } from './EditProfileForm';
 
-type Props = {
-  editingUser: EditUserData | null;
-  setEditingUser: (user: EditUserData | null) => void;
-};
-
-export const EditProfileDialog = ({ editingUser, setEditingUser }: Props) => {
+export const EditProfileDialog = ({ editingUser, setEditingUser }: DialogProps) => {
   const { t } = useTranslation();
 
   if (!editingUser) return null;
