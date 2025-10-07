@@ -1,0 +1,125 @@
+{
+  "auth": {
+    "login": {
+      "title": "С возвращением",
+      "subtitle": "Рады вас видеть! Войдите, чтобы продолжить",
+      "button": "Войти",
+      "tab": "Войти"
+    },
+    "signup": {
+      "title": "Зарегистрируйтесь",
+      "subtitle": "Добро пожаловать! Создайте аккаунт, чтобы продолжить",
+      "button": "Создать аккаунт",
+      "loading": "Создание аккаунта...",
+      "tab": "Создать"
+    },
+    "forgotPassword": {
+      "title": "Забыли пароль",
+      "subtitle": "Мы вышлем вам электронное письмо с дальнейшими инструкциями",
+      "button": "Сбросить пароль",
+      "successMessage": "Проверьте свою почту. Вы будете перенаправлены на страницу Входа через 5 секунд."
+    },
+    "resetPassword": {
+      "title": "Установите новый пароль",
+      "subtitle": "Почти готово! Теперь создайте новый пароль",
+      "button": "Подтвердить",
+      "successMessage": "Пароль был обновлен",
+      "backToLogin": "Вернуться для входа"
+    },
+    "validation": {
+      "emailRequired": "Введите почту",
+      "emailInvalidFormat": "Некорректный формат почты",
+      "passwordRequired": "Введите пароль",
+      "passwordLength": "Пароль должен содержать минимум 5 символов"
+    },
+    "logout": "Выйти",
+    "haveAccount": "У меня есть аккаунт"
+  },
+
+  "buttonMessages": {
+    "wait": "Подождите...",
+    "loading": "Загрузка...",
+    "cancel": "Отмена",
+    "update": "Обновить",
+    "search": "Поиск"
+  },
+
+  "formFields": {
+    "email": "Почта",
+    "password": "Пароль",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "department": "Отдел",
+    "position": "Должность",
+    "role": "Права доступа"
+  },
+
+  "titles": {
+    "updateUser": "Обновить пользователя",
+    "editProfile": "Редактировать"
+  },
+
+  "errorPage": {
+    "title": "Страница не найдена :(",
+    "subtitle": "Упс!",
+    "button": "Вернуться на главную"
+  },
+
+  "navigation": {
+    "employees": "Сотрудники",
+    "skills": "Навыки",
+    "languages": "Языки",
+    "cvs": "Резюме",
+    "profile": "Профиль",
+    "settings": "Настройки"
+  },
+
+  "profile": {
+    "error": "Пользователь не найден",
+    "date": "Аккаунт был создан",
+    "uploadAvatar": "Загрузите изображение аватара",
+    "avatarParams": "PNG, JPG или GIF не больше 0.5МБ",
+    "avatarMsg": {
+      "size": "Размер файла не должен превышать 0.5МБ",
+      "types": "Поддерживаются только PNG, JPG и GIF файлы",
+      "uploadSuccess": "Фото профиля успешно обновлен",
+      "uploadError": "Ошибка загрузки",
+      "deleteSuccess": "Фото профиля успешно удалено",
+      "deleteError": "Ошибка удаления"
+    }
+  },
+
+  "Name": "Имя",
+  "Internal Name": "Внутреннее имя",
+  "Domain": "Домен",
+  "Start Date": "Дата начала",
+  "End Date": "Дата окончания",
+  "Team Size": "Размер команды",
+  "Till now": "По настоящее время",
+  "Project": "Проект",
+  "Create project": "Создать проект",
+  "Delete project": "Удалить проект",
+  "Are you sure you want to delete project": "Вы уверены, что хотите удалить проект",
+
+  "Template": "Шаблон",
+  "Description": "Описание",
+  "Employee": "Сотрудник",
+  "CV": "Резюме",
+  "Delete CV": "Удалить резюме",
+
+  "Create position": "Создать должность",
+  "Update position": "Обновить должность",
+  "Delete position": "Удалить должность",
+  "Are you sure you want to delete position": "Вы уверены, что хотите удалить должность",
+
+  "Create skill": "Создать навык",
+  "Update skill": "Обновить навык",
+  "Delete skill": "Удалить навык",
+  "Are you sure you want to delete skill": "Вы уверены, что хотите удалить навык",
+
+  "Native Name": "Родное имя",
+  "Create language": "Создать язык",
+  "Update language": "Обновить язык",
+  "Delete language": "Удалить язык",
+  "Are you sure you want to delete language": "Вы уверены, что хотите удалить язык"
+}

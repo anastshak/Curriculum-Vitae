@@ -1,0 +1,125 @@
+{
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Hello again! Log in to continue",
+      "button": "Log In",
+      "tab": "Login"
+    },
+    "signup": {
+      "title": "Register now",
+      "subtitle": "Welcome! Sign up to continue",
+      "button": "Create account",
+      "loading": "Creating account...",
+      "tab": "Signup"
+    },
+    "forgotPassword": {
+      "title": "Forgot password",
+      "subtitle": "We will send you an email with further instructions",
+      "button": "Reset Password",
+      "successMessage": "Check your email. You will be redirected to Login Page in 5 seconds."
+    },
+    "resetPassword": {
+      "title": "Set a new password",
+      "subtitle": "Almost done! Now create a new password",
+      "button": "Submit",
+      "successMessage": "Password has been updated",
+      "backToLogin": "Back to log in"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalidFormat": "Invalid email format",
+      "passwordRequired": "Password is required",
+      "passwordLength": "Password must be at least 5 characters"
+    },
+    "logout": "Logout",
+    "haveAccount": "I have an account"
+  },
+
+  "buttonMessages": {
+    "wait": "Wait...",
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "update": "Update",
+    "search": "Search"
+  },
+
+  "formFields": {
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "department": "Department",
+    "position": "Position",
+    "role": "Role"
+  },
+
+  "titles": {
+    "updateUser": "Update user",
+    "editProfile": "Edit profile"
+  },
+
+  "errorPage": {
+    "title": "Page not found :(",
+    "subtitle": "Oops!",
+    "button": "Back Home"
+  },
+
+  "navigation": {
+    "employees": "Employees",
+    "skills": "Skills",
+    "languages": "Languages",
+    "cvs": "CVs",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+
+  "profile": {
+    "error": "User not found",
+    "date": "A member since",
+    "uploadAvatar": "Upload avatar image",
+    "avatarParams": "PNG, JPG or GIF no more than 0.5MB",
+    "avatarMsg": {
+      "size": "File size should not exceed 0.5MB",
+      "types": "Only PNG, JPG and GIF files are allowed",
+      "uploadSuccess": "Avatar uploaded successfully",
+      "uploadError": "Upload failed",
+      "deleteSuccess": "Avatar deleted successfully",
+      "deleteError": "Delete failed"
+    }
+  },
+
+  "Name": "Name",
+  "Internal Name": "Internal Name",
+  "Domain": "Domain",
+  "Start Date": "Start Date",
+  "End Date": "End Date",
+  "Team Size": "Team Size",
+  "Till now": "Till now",
+  "Project": "Project",
+  "Create project": "Create project",
+  "Delete project": "Delete project",
+  "Are you sure you want to delete project": "Are you sure you want to delete project",
+
+  "Template": "Template",
+  "Description": "Description",
+  "Employee": "Employee",
+  "CV": "CV",
+  "Delete CV": "Delete CV",
+
+  "Create position": "Create position",
+  "Update position": "Update position",
+  "Delete position": "Delete position",
+  "Are you sure you want to delete position": "Are you sure you want to delete position",
+
+  "Create skill": "Create skill",
+  "Update skill": "Update skill",
+  "Delete skill": "Delete skill",
+  "Are you sure you want to delete skill": "Are you sure you want to delete skill",
+
+  "Native Name": "Native Name",
+  "Create language": "Create language",
+  "Update language": "Update language",
+  "Delete language": "Delete language",
+  "Are you sure you want to delete language": "Are you sure you want to delete language"
+}
