@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
@@ -8,9 +9,10 @@ type BaseSelectProps = {
   loading?: boolean;
   isOwner?: boolean;
   options: { id: string; label: string }[];
+  children?: ReactNode;
 };
 
-export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, options }: BaseSelectProps) => {
+export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, options, children }: BaseSelectProps) => {
   const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -22,18 +24,14 @@ export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, op
   return (
     <FormControl fullWidth margin="none" sx={{ maxWidth: 410 }}>
       <InputLabel>{t(label)}</InputLabel>
-      <Select
-        value={value}
-        label={t(label)}
-        onChange={handleChange}
-        disabled={loading || !isOwner}
-        displayEmpty={options.length === 0}
-      >
-        {options.map((option) => (
-          <MenuItem key={option.id} value={option.id}>
-            {option.label}
-          </MenuItem>
-        ))}
+      <Select value={value} label={t(label)} onChange={handleChange} disabled={loading || !isOwner}>
+        {children
+          ? children
+          : options.map((option) => (
+              <MenuItem key={option.id} value={option.id}>
+                {option.label}
+              </MenuItem>
+            ))}
       </Select>
     </FormControl>
   );
