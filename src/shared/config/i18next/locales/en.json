@@ -96,7 +96,7 @@
   "skills": {
     "add": "Add skill",
     "update": "Update skill",
-    "delete": "Delete skill:s",
+    "delete": "Delete skills",
     "deleteSelected": "Delete selected",
 
     "noSkills": "No skills yet",

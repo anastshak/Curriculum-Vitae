@@ -47,6 +47,7 @@ export const GroupedSkillSelect = ({ user, value, onChange, loading }: GroupedSk
       loading={loading || isLoading}
       isOwner
       options={[]}
+      size={600}
     >
       {groupedOptions.map((group) => [
         <ListSubheader key={group.category}>{group.category}</ListSubheader>,

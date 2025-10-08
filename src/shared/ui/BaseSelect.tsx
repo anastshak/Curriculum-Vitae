@@ -10,9 +10,19 @@ type BaseSelectProps = {
   isOwner?: boolean;
   options: { id: string; label: string }[];
   children?: ReactNode;
+  size?: number;
 };
 
-export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, options, children }: BaseSelectProps) => {
+export const BaseSelect = ({
+  label,
+  value,
+  onChange,
+  loading,
+  isOwner = true,
+  options,
+  children,
+  size = 410,
+}: BaseSelectProps) => {
   const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -22,7 +32,7 @@ export const BaseSelect = ({ label, value, onChange, loading, isOwner = true, op
   };
 
   return (
-    <FormControl fullWidth margin="none" sx={{ maxWidth: 410 }}>
+    <FormControl fullWidth margin="none" sx={{ maxWidth: size }}>
       <InputLabel>{t(label)}</InputLabel>
       <Select value={value} label={t(label)} onChange={handleChange} disabled={loading || !isOwner}>
         {children

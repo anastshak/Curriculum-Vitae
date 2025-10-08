@@ -22,6 +22,7 @@ export const MasterySelect = ({ value, onChange, loading }: Props) => {
       onChange={onChange}
       loading={loading}
       options={options}
+      size={600}
     />
   );
 };
