@@ -4,6 +4,6 @@ export type GroupedSkillSelectProps = {
   user: Profile;
   value: string;
   onChange?: (value: string) => void;
-  disabled?: boolean;
   loading?: boolean;
+  disabled?: boolean;
 };

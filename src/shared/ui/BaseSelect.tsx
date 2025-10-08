@@ -8,6 +8,7 @@ type BaseSelectProps = {
   onChange?: (value: string) => void;
   loading?: boolean;
   isOwner?: boolean;
+  disabled?: boolean;
   options: { id: string; label: string }[];
   children?: ReactNode;
   size?: number;
@@ -19,6 +20,7 @@ export const BaseSelect = ({
   onChange,
   loading,
   isOwner = true,
+  disabled,
   options,
   children,
   size = 410,
@@ -34,7 +36,7 @@ export const BaseSelect = ({
   return (
     <FormControl fullWidth margin="none" sx={{ maxWidth: size }}>
       <InputLabel>{t(label)}</InputLabel>
-      <Select value={value} label={t(label)} onChange={handleChange} disabled={loading || !isOwner}>
+      <Select value={value} label={t(label)} onChange={handleChange} disabled={loading || !isOwner || disabled}>
         {children
           ? children
           : options.map((option) => (

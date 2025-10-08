@@ -7,7 +7,7 @@ import { BaseSelect } from '@shared/ui/BaseSelect';
 import { useSkillCategories, useSkills } from '../api';
 import { GroupedSkillSelectProps } from '../model/types';
 
-export const GroupedSkillSelect = ({ user, value, onChange, loading }: GroupedSkillSelectProps) => {
+export const GroupedSkillSelect = ({ user, value, onChange, loading, disabled }: GroupedSkillSelectProps) => {
   const { t } = useTranslation();
 
   const { data: skillsData, loading: skillsLoading } = useSkills();
@@ -39,13 +39,25 @@ export const GroupedSkillSelect = ({ user, value, onChange, loading }: GroupedSk
     return grouped;
   }, [skillsData, categoriesData, userSkillNames]);
 
+  if (disabled && value) {
+    return (
+      <BaseSelect
+        label={t('formFields.skill')}
+        value={value}
+        loading={isLoading}
+        disabled
+        options={[{ id: value, label: value.split(':')[0] }]}
+        size={600}
+      />
+    );
+  }
+
   return (
     <BaseSelect
       label={t('formFields.skill')}
       value={value}
       onChange={onChange}
-      loading={loading || isLoading}
-      isOwner
+      loading={isLoading}
       options={[]}
       size={600}
     >
