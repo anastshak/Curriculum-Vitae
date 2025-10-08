@@ -41,7 +41,8 @@
     "loading": "Загрузка...",
     "cancel": "Отмена",
     "update": "Обновить",
-    "search": "Поиск"
+    "search": "Поиск",
+    "confirm": "Подтвердить"
   },
 
   "formFields": {
@@ -51,7 +52,10 @@
     "lastName": "Фамилия",
     "department": "Отдел",
     "position": "Должность",
-    "role": "Права доступа"
+    "role": "Права доступа",
+    "skill": "Навык",
+    "skillCategory": "Категория навыка",
+    "skillMastery": "Уровень владения"
   },
 
   "titles": {
@@ -86,6 +90,23 @@
       "uploadError": "Ошибка загрузки",
       "deleteSuccess": "Фото профиля успешно удалено",
       "deleteError": "Ошибка удаления"
+    }
+  },
+
+  "skills": {
+    "add": "Дoбавить навык",
+    "update": "Обновить навык",
+    "delete": "Удалить навык:и",
+    "deleteSelected": "Удалить выбранные",
+
+    "noSkills": "Навыков пока нет",
+
+    "masteryLevels": {
+      "expert": "Эксперт",
+      "proficient": "Уверенный",
+      "competent": "Компетентный",
+      "advanced": "Продвинутый",
+      "novice": "Новичок"
     }
   },
 
