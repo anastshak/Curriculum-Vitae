@@ -1,7 +1,7 @@
-import { Languages } from '@features/languages';
+import { ProfileLanguages } from '@features/languages';
 
 const LanguagesPage = () => {
-  return <Languages />;
+  return <ProfileLanguages />;
 };
 
 export default LanguagesPage;
