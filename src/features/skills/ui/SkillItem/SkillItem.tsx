@@ -8,13 +8,21 @@ import { getValuesFromTheme } from './lib/getValuesFromTheme';
 import { getProgressBarStyles, getWrapperStyles } from './SkillItem.styles';
 import { SkillItemProps } from './SkillItem.types';
 
-export const SkillItem = ({ name, mastery, isOwner = false, onEdit, selected = false, onSelect }: SkillItemProps) => {
+export const SkillItem = ({
+  name,
+  mastery,
+  isOwner = false,
+  isRemoveMode = false,
+  onEdit,
+  selected = false,
+  onSelect,
+}: SkillItemProps) => {
   const theme = useTheme();
 
   const { value, color } = getColorMastery(mastery as Mastery, selected);
   const { progress, background } = getValuesFromTheme(theme, color);
 
-  const wrapperStyles = useMemo(() => getWrapperStyles(isOwner, onSelect), [isOwner, onSelect]);
+  const wrapperStyles = useMemo(() => getWrapperStyles(isRemoveMode, onSelect), [isRemoveMode, onSelect]);
   const progressStyles = useMemo(() => getProgressBarStyles(progress, background), [progress, background]);
 
   return (

@@ -8,6 +8,7 @@ export const SkillsList = ({
   categories,
   skills,
   isOwner = false,
+  isRemoveMode = false,
   onEdit,
   selectedSkills = [],
   onSelectSkill,
@@ -31,6 +32,7 @@ export const SkillsList = ({
                   name={skill.name}
                   mastery={skill.mastery}
                   isOwner={isOwner}
+                  isRemoveMode={isRemoveMode}
                   onEdit={() => onEdit?.(skill)}
                   selected={selectedSkills.includes(skill.name)}
                   onSelect={() => onSelectSkill?.(skill.name)}

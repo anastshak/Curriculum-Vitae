@@ -1,10 +1,10 @@
 import { linearProgressClasses, SxProps, Theme } from '@mui/material';
 
-export const getWrapperStyles = (isOwner: boolean, onSelect?: () => void): SxProps<Theme> => ({
+export const getWrapperStyles = (isRemoveMode: boolean, onSelect?: () => void): SxProps<Theme> => ({
   height: 48,
   alignItems: 'center',
   gap: '1rem',
-  cursor: onSelect && isOwner ? 'pointer' : 'default',
+  cursor: onSelect && isRemoveMode ? 'pointer' : 'default',
   transition: '0.2s',
 });
 

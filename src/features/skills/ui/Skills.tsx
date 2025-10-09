@@ -90,6 +90,7 @@ export const ProfileSkills = () => {
           categories={categories}
           skills={skills}
           isOwner={isOwner}
+          isRemoveMode={removeMode}
           onEdit={(skill) => setEditingSkill(skill)}
           selectedSkills={selectedSkills}
           onSelectSkill={removeMode ? handleSkillSelect : undefined}
