@@ -10,7 +10,7 @@ export const AddButton = ({ handleClick }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <Button variant="outlined" startIcon={<AddIcon />} onClick={handleClick}>
+    <Button variant="text" sx={{ color: 'text.secondary' }} startIcon={<AddIcon />} onClick={handleClick}>
       {t('skills.add')}
     </Button>
   );
