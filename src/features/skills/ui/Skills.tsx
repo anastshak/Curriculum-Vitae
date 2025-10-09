@@ -21,7 +21,7 @@ export const ProfileSkills = () => {
 
   const userId = paramUserId ?? currentUser?.id;
 
-  const { data: profileData, loading: profileLoading, refetch } = useProfile(userId!);
+  const { data: profileData, loading: profileLoading } = useProfile(userId!);
   const { data: categoriesData, loading: categoriesLoading } = useSkillCategories();
   const [deleteSkill, { loading: deleteLoading }] = useDeleteProfileSkill();
 
@@ -64,8 +64,7 @@ export const ProfileSkills = () => {
   const handleCloseDialogs = useCallback(() => {
     setOpenAdd(false);
     setEditingSkill(null);
-    refetch();
-  }, [refetch]);
+  }, []);
 
   const handleCancel = useCallback(() => {
     setRemoveMode(false);
@@ -78,7 +77,6 @@ export const ProfileSkills = () => {
 
   return (
     <Container maxWidth="md" sx={{ pt: 4 }}>
-      {/* === main === */}
       {!hasSkills ? (
         <Box textAlign="center">
           {isOwner ? (
@@ -98,7 +96,6 @@ export const ProfileSkills = () => {
         />
       )}
 
-      {/* === actions === */}
       {isOwner && hasSkills && (
         <SkillsActions
           removeMode={removeMode}
@@ -111,7 +108,6 @@ export const ProfileSkills = () => {
         />
       )}
 
-      {/* === dialogs === */}
       {openAdd && isOwner && <AddSkillDialog open={openAdd} user={user as Profile} onClose={handleCloseDialogs} />}
 
       {editingSkill && user && (
