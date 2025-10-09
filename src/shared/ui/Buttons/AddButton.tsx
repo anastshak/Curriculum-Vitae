@@ -4,14 +4,16 @@ import { Button } from '@mui/material';
 
 type Props = {
   handleClick: () => void;
+  location: 'skills' | 'languages';
 };
 
-export const AddButton = ({ handleClick }: Props) => {
+export const AddButton = ({ handleClick, location }: Props) => {
   const { t } = useTranslation();
 
   return (
     <Button variant="text" sx={{ color: 'text.secondary' }} startIcon={<AddIcon />} onClick={handleClick}>
-      {t('skills.add')}
+      {location === 'skills' && t('skills.add')}
+      {location === 'languages' && t('languages.add')}
     </Button>
   );
 };

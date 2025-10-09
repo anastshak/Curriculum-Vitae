@@ -1,9 +1,10 @@
-export type SkillsActionsProps = {
+export type ButtonsActionsProps = {
   removeMode: boolean;
-  selectedSkills: string[];
+  selectedItems: string[];
   deleteLoading: boolean;
   onAdd: () => void;
   onDeleteMode: () => void;
   onCancel: () => void;
   onDelete: () => void;
+  location: 'skills' | 'languages';
 };

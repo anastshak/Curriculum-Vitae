@@ -6,12 +6,12 @@ import { Profile, SkillMastery } from 'cv-graphql';
 
 import { useCurrentUser } from '@features/auth';
 import { useDeleteProfileSkill, useProfile, useSkillCategories } from '@features/skills/api';
+import { AddButton } from '@shared/ui/Buttons';
+import { ButtonsActions } from '@shared/ui/ButtonsActions';
 import { Loader } from '@shared/ui/Loader';
 
 import { SkillsList } from './SkillsList/SkillsList';
-import { AddButton } from './Buttons';
 import { AddSkillDialog, UpdateSkillDialog } from './Dialogs';
-import { SkillsActions } from './SkillsActions';
 
 export const ProfileSkills = () => {
   const { t } = useTranslation();
@@ -80,7 +80,7 @@ export const ProfileSkills = () => {
       {!hasSkills ? (
         <Box textAlign="center">
           {isOwner ? (
-            <AddButton handleClick={() => setOpenAdd(true)} />
+            <AddButton location="skills" handleClick={() => setOpenAdd(true)} />
           ) : (
             <Typography color="text.secondary">{t('skills.noSkills')}</Typography>
           )}
@@ -97,14 +97,15 @@ export const ProfileSkills = () => {
       )}
 
       {isOwner && hasSkills && (
-        <SkillsActions
+        <ButtonsActions
           removeMode={removeMode}
-          selectedSkills={selectedSkills}
+          selectedItems={selectedSkills}
           deleteLoading={deleteLoading}
           onAdd={() => setOpenAdd(true)}
           onDeleteMode={() => setRemoveMode(true)}
           onCancel={handleCancel}
           onDelete={handleDeleteSelected}
+          location="skills"
         />
       )}
 

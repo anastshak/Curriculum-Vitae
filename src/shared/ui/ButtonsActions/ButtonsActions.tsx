@@ -1,22 +1,23 @@
 import { Stack } from '@mui/material';
 
 import { AddButton, CancelButton, DeleteButton } from '../Buttons';
-import { SkillsActionsProps } from './SkillsActions.types';
+import { ButtonsActionsProps } from './ButtonsActions.types';
 
-export const SkillsActions = ({
+export const ButtonsActions = ({
   removeMode,
-  selectedSkills,
+  selectedItems,
   deleteLoading,
   onAdd,
   onDeleteMode,
   onCancel,
   onDelete,
-}: SkillsActionsProps) => (
+  location,
+}: ButtonsActionsProps) => (
   <Stack direction="row" justifyContent="flex-end" alignItems="center" marginY={3} spacing={1.5}>
     {!removeMode ? (
       <>
-        <AddButton handleClick={onAdd} />
-        <DeleteButton mode="base" handleClick={onDeleteMode} />
+        <AddButton location={location} handleClick={onAdd} />
+        <DeleteButton location={location} mode="base" handleClick={onDeleteMode} />
       </>
     ) : (
       <>
@@ -24,9 +25,10 @@ export const SkillsActions = ({
         <DeleteButton
           mode="selected"
           handleClick={onDelete}
-          disabled={!selectedSkills.length || deleteLoading}
+          disabled={!selectedItems.length || deleteLoading}
           loading={deleteLoading}
-          count={selectedSkills.length}
+          count={selectedItems.length}
+          location={location}
         />
       </>
     )}

@@ -5,8 +5,8 @@ import { Mastery } from 'cv-graphql';
 
 import { MasterySelect } from '@entities/mastery';
 import { GroupedSkillSelect } from '@entities/skills';
+import { CancelButton } from '@shared/ui/Buttons';
 
-import { CancelButton } from '../../Buttons';
 import { SkillFormProps, SkillFormValues } from './SkillForm.types';
 
 export const SkillForm = ({
