@@ -26,6 +26,7 @@ export const SkillsActions = ({
           handleClick={onDelete}
           disabled={!selectedSkills.length || deleteLoading}
           loading={deleteLoading}
+          count={selectedSkills.length}
         />
       </>
     )}

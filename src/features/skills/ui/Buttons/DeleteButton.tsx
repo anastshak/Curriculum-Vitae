@@ -7,9 +7,10 @@ type Props = {
   handleClick: () => void;
   disabled?: boolean;
   loading?: boolean;
+  count?: number;
 };
 
-export const DeleteButton = ({ handleClick, mode, disabled, loading }: Props) => {
+export const DeleteButton = ({ handleClick, mode, disabled, loading, count }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -21,7 +22,7 @@ export const DeleteButton = ({ handleClick, mode, disabled, loading }: Props) =>
       )}
       {mode === 'selected' && (
         <Button variant="contained" color="error" onClick={handleClick} disabled={disabled}>
-          {loading ? <CircularProgress size={18} /> : t('skills.deleteSelected')}
+          {loading ? <CircularProgress size={18} /> : `${t('skills.deleteSelected')}  ${count}`}
         </Button>
       )}
     </>
