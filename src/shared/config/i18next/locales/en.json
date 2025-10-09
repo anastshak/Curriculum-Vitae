@@ -54,8 +54,9 @@
     "position": "Position",
     "role": "Role",
     "skill": "Skill",
-    "skillCategory": "Category",
-    "skillMastery": "Skill Mastery"
+    "skillMastery": "Skill Mastery",
+    "language": "Language",
+    "languageProficiency": "Language Proficiency"
   },
 
   "titles": {
@@ -107,6 +108,19 @@
       "competent": "Competent",
       "advanced": "Advanced",
       "novice": "Novice"
+    }
+  },
+
+  "languages": {
+    "add": "Add language",
+    "update": "Update language",
+    "delete": "Delete language",
+    "deleteSelected": "Delete selected",
+
+    "noLanguages": "No languages yet",
+
+    "levels": {
+      "native": "Native"
     }
   },
 
