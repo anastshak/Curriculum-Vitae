@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import { LanguageProficiency, Profile } from 'cv-graphql';
@@ -12,7 +13,7 @@ type AddLanguageDialogProps = {
   onClose: () => void;
 };
 
-export const AddLanguageDialog = ({ open, user, onClose }: AddLanguageDialogProps) => {
+export const AddLanguageDialog = React.memo(({ open, user, onClose }: AddLanguageDialogProps) => {
   const { t } = useTranslation();
 
   const [addLanguage, { loading }] = useAddProfileLanguage();
@@ -41,4 +42,4 @@ export const AddLanguageDialog = ({ open, user, onClose }: AddLanguageDialogProp
       </DialogContent>
     </Dialog>
   );
-};
+});

@@ -38,13 +38,13 @@ export const ProfileLanguages = () => {
   const isLoading = profileLoading;
   const hasLanguages = languages.length > 0;
 
-  const handleLanguageSelect = (name: string) => {
+  const handleLanguageSelect = useCallback((name: string) => {
     setSelectedLanguages((prev) =>
       prev.includes(name) ? prev.filter((language) => language !== name) : [...prev, name],
     );
-  };
+  }, []);
 
-  const handleDeleteSelected = async () => {
+  const handleDeleteSelected = useCallback(async () => {
     if (!selectedLanguages.length || !userId) return;
 
     if (userId) {
@@ -60,7 +60,7 @@ export const ProfileLanguages = () => {
 
     setRemoveMode(false);
     setSelectedLanguages([]);
-  };
+  }, [deleteLanguage, selectedLanguages, userId]);
 
   const handleCloseDialogs = useCallback(() => {
     setOpenAdd(false);
