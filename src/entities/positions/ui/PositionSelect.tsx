@@ -1,9 +1,9 @@
 import { BaseSelect } from '@shared/ui/BaseSelect';
 
 import { usePositions } from '../api';
-import { Props } from '../model/types';
+import { PositionSelectProps } from '../model/types';
 
-export const PositionSelect = ({ value, onChange, loading, isOwner = true }: Props) => {
+export const PositionSelect = ({ value, onChange, loading, isOwner = true }: PositionSelectProps) => {
   const { data } = usePositions();
   const options = data?.positions.map((position) => ({ id: position.id, label: position.name })) || [];
 

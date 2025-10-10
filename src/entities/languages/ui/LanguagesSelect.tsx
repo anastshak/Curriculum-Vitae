@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { BaseSelect } from '@shared/ui/BaseSelect';
 
 import { useLanguages } from '../api';
-import { Props } from '../model/types';
+import { LanguagesSelectProps } from '../model/types';
 
-export const LanguagesSelect = ({ user, value, onChange, loading, disabled }: Props) => {
+export const LanguagesSelect = ({ user, value, onChange, loading, disabled }: LanguagesSelectProps) => {
   const { t } = useTranslation();
 
   const { data, loading: languagesLoading } = useLanguages();

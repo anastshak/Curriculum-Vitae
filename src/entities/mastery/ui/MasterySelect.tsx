@@ -2,18 +2,13 @@ import { useTranslation } from 'react-i18next';
 
 import { BaseSelect } from '@shared/ui/BaseSelect';
 
-import { Props } from '../model/types';
+import { getMasteryOptions } from '../model/getMasteryOptions';
+import { MasterySelectProps } from '../model/types';
 
-export const MasterySelect = ({ value, onChange, loading }: Props) => {
+export const MasterySelect = ({ value, onChange, loading }: MasterySelectProps) => {
   const { t } = useTranslation();
 
-  const options = [
-    { id: 'Expert', label: t('skills.masteryLevels.expert') },
-    { id: 'Proficient', label: t('skills.masteryLevels.proficient') },
-    { id: 'Competent', label: t('skills.masteryLevels.competent') },
-    { id: 'Advanced', label: t('skills.masteryLevels.advanced') },
-    { id: 'Novice', label: t('skills.masteryLevels.novice') },
-  ];
+  const options = getMasteryOptions(t);
 
   return (
     <BaseSelect

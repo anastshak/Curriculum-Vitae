@@ -2,12 +2,13 @@ import { useTranslation } from 'react-i18next';
 
 import { BaseSelect } from '@shared/ui/BaseSelect';
 
-import { Props } from '../model/types';
+import { proficiencyLevels } from '../consts/proficiencyLevels';
+import { LanguageProficiencySelectProps } from '../model/types';
 
-export const LanguageProficiencySelect = ({ value, onChange, loading }: Props) => {
+export const LanguageProficiencySelect = ({ value, onChange, loading }: LanguageProficiencySelectProps) => {
   const { t } = useTranslation();
 
-  const options = ['Native', 'C2', 'C1', 'B2', 'B1', 'A2', 'A1'].map((prof) => ({
+  const options = proficiencyLevels.map((prof) => ({
     id: prof,
     label: prof === 'Native' ? t('languages.levels.native') : prof,
   }));
