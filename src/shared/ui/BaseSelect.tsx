@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
@@ -33,17 +33,21 @@ export const BaseSelect = ({
     }
   };
 
+  const renderOptions = useMemo(
+    () =>
+      options.map(({ id, label }) => (
+        <MenuItem key={id} value={id}>
+          {label}
+        </MenuItem>
+      )),
+    [options],
+  );
+
   return (
     <FormControl fullWidth margin="none" sx={{ maxWidth: size }}>
       <InputLabel>{t(label)}</InputLabel>
       <Select value={value} label={t(label)} onChange={handleChange} disabled={loading || !isOwner || disabled}>
-        {children
-          ? children
-          : options.map((option) => (
-              <MenuItem key={option.id} value={option.id}>
-                {option.label}
-              </MenuItem>
-            ))}
+        {children ?? renderOptions}
       </Select>
     </FormControl>
   );
