@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import { Mastery, Profile } from 'cv-graphql';
@@ -13,7 +14,7 @@ type AddSkillDialogProps = {
   onClose: () => void;
 };
 
-export const AddSkillDialog = ({ open, user, onClose }: AddSkillDialogProps) => {
+export const AddSkillDialog = React.memo(({ open, user, onClose }: AddSkillDialogProps) => {
   const { t } = useTranslation();
   const [addSkill, { loading }] = useAddProfileSkill();
 
@@ -44,4 +45,4 @@ export const AddSkillDialog = ({ open, user, onClose }: AddSkillDialogProps) => 
       </DialogContent>
     </Dialog>
   );
-};
+});

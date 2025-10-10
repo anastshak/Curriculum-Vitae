@@ -39,11 +39,11 @@ export const ProfileSkills = () => {
   const isLoading = profileLoading || categoriesLoading;
   const hasSkills = skills.length > 0;
 
-  const handleSkillSelect = (name: string) => {
+  const handleSkillSelect = useCallback((name: string) => {
     setSelectedSkills((prev) => (prev.includes(name) ? prev.filter((skill) => skill !== name) : [...prev, name]));
-  };
+  }, []);
 
-  const handleDeleteSelected = async () => {
+  const handleDeleteSelected = useCallback(async () => {
     if (!selectedSkills.length || !userId) return;
 
     if (userId) {
@@ -59,7 +59,7 @@ export const ProfileSkills = () => {
 
     setRemoveMode(false);
     setSelectedSkills([]);
-  };
+  }, [deleteSkill, selectedSkills, userId]);
 
   const handleCloseDialogs = useCallback(() => {
     setOpenAdd(false);
