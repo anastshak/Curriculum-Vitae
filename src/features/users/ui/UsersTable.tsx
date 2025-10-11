@@ -8,11 +8,11 @@ import { useCurrentUser } from '@features/auth';
 import { EditProfileDialog } from '@features/edit-profile';
 import { EditUserData } from '@shared/lib/types/EditUserData';
 import { Loader } from '@shared/ui/Loader';
+import { Searchbar } from '@shared/ui/Searchbar';
 
 import { useUsers } from '../api';
 import { mapUsers } from '../lib/mapUsers';
 import { UserTableRow } from '../lib/types';
-import { Searchbar } from './Searchbar';
 import { getUsersTableColumns } from './UsersTableColumns';
 
 export const UsersTable = () => {
