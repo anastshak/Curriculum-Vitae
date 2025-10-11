@@ -15,7 +15,7 @@ export const ROUTES = {
     PROFILE: '/users/:userId/profile',
     SKILLS: '/users/:userId/skills',
     LANGUAGES: '/users/:userId/languages',
-    CVS: '/users/cvs',
+    CVS: '/users/:userId/cvs',
   },
 
   SETTINGS: '/settings',

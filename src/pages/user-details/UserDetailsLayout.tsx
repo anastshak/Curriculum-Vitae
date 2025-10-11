@@ -33,6 +33,12 @@ const UserDetailsLayout = () => {
           component={NavLink}
           to={ROUTES.USER.LANGUAGES.replace(':userId', userId!)}
         />
+        <Tab
+          value={ROUTES.USER.CVS.replace(':userId', userId!)}
+          label={t('navigation.cvs')}
+          component={NavLink}
+          to={ROUTES.USER.CVS.replace(':userId', userId!)}
+        />
       </Tabs>
       <Suspense fallback={<Loader />}>
         <Outlet />
