@@ -1,5 +1,7 @@
-const CVsPage = () => {
-  return <h1>CVs page</h1>;
+import { CvsTable } from '@features/cvs';
+
+const UserCVsPage = () => {
+  return <CvsTable />;
 };
 
-export default CVsPage;
+export default UserCVsPage;

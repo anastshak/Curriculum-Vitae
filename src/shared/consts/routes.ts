@@ -22,5 +22,10 @@ export const ROUTES = {
 
   SKILLS: '/skills',
   LANGUAGES: '/languages',
+
   CVS: '/cvs',
+  CV: {
+    ROOT: '/cvs',
+    DETAILS: '/cvs/:cvId/details',
+  },
 } as const;

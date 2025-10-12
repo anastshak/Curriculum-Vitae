@@ -9,4 +9,5 @@ export const PATH_MAPPING: Record<string, { label: string; queryKey?: string }> 
   '/skills': { label: i18n.t('navigation.skills') },
   '/languages': { label: i18n.t('navigation.languages') },
   '/cvs': { label: i18n.t('navigation.cvs') },
+  '/cvs/:id/details': { label: i18n.t('navigation.cvDetails') },
 };

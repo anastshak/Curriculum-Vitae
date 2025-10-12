@@ -22,7 +22,8 @@ const Skills = lazy(() => import('@pages/skills'));
 const Languages = lazy(() => import('@pages/languages'));
 const Profile = lazy(() => import('@pages/user-details/Profile'));
 const UserDetailsLayout = lazy(() => import('@pages/user-details/UserDetailsLayout'));
-const CVs = lazy(() => import('@pages/user-cvs'));
+const UserCVs = lazy(() => import('@pages/user-cvs'));
+const CVsPage = lazy(() => import('@pages/cvs'));
 
 export const routerRoutes = [
   {
@@ -58,7 +59,7 @@ export const routerRoutes = [
           },
           {
             path: ROUTES.USER.CVS,
-            element: <CVs />,
+            element: <UserCVs />,
           },
         ],
       },
@@ -80,11 +81,7 @@ export const routerRoutes = [
       },
       {
         path: ROUTES.CVS,
-        element: (
-          <Layout>
-            <CVs />
-          </Layout>
-        ),
+        element: <CVsPage />,
       },
     ],
   },
