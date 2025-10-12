@@ -42,26 +42,38 @@
     "cancel": "Отмена",
     "update": "Обновить",
     "search": "Поиск",
-    "confirm": "Подтвердить"
+    "confirm": "Подтвердить",
+    "create": "Создать"
   },
 
   "formFields": {
     "email": "Почта",
     "password": "Пароль",
+
     "firstName": "Имя",
     "lastName": "Фамилия",
     "department": "Отдел",
     "position": "Должность",
     "role": "Права доступа",
+
     "skill": "Навык",
     "skillMastery": "Уровень владения",
+
     "language": "Язык",
-    "languageProficiency": "Уровень владения"
+    "languageProficiency": "Уровень владения",
+
+    "cvName": "Название",
+    "education": "Образование",
+    "description": "Описание",
+    "employee": "Сотрудник"
   },
 
   "titles": {
     "updateUser": "Обновить пользователя",
-    "editProfile": "Редактировать"
+    "editProfile": "Редактировать",
+    "createCv": "Создать резюме",
+    "updateCv": "Обновить резюме",
+    "deleteCv": "Удалить"
   },
 
   "errorPage": {
@@ -75,6 +87,7 @@
     "skills": "Навыки",
     "languages": "Языки",
     "cvs": "Резюме",
+    "cvDetails": "Детали",
     "profile": "Профиль",
     "settings": "Настройки"
   },
@@ -124,37 +137,15 @@
     }
   },
 
-  "Name": "Имя",
-  "Internal Name": "Внутреннее имя",
-  "Domain": "Домен",
-  "Start Date": "Дата начала",
-  "End Date": "Дата окончания",
-  "Team Size": "Размер команды",
-  "Till now": "По настоящее время",
-  "Project": "Проект",
-  "Create project": "Создать проект",
-  "Delete project": "Удалить проект",
-  "Are you sure you want to delete project": "Вы уверены, что хотите удалить проект",
+  "cvs": {
+    "noData": "Пока нет резюме",
+    "createBtn": "Создать резюме",
 
-  "Template": "Шаблон",
-  "Description": "Описание",
-  "Employee": "Сотрудник",
-  "CV": "Резюме",
-  "Delete CV": "Удалить резюме",
+    "validation": {
+      "nameRequired": "Введите название",
+      "descRequired": "Напишите описание"
+    },
 
-  "Create position": "Создать должность",
-  "Update position": "Обновить должность",
-  "Delete position": "Удалить должность",
-  "Are you sure you want to delete position": "Вы уверены, что хотите удалить должность",
-
-  "Create skill": "Создать навык",
-  "Update skill": "Обновить навык",
-  "Delete skill": "Удалить навык",
-  "Are you sure you want to delete skill": "Вы уверены, что хотите удалить навык",
-
-  "Native Name": "Родное имя",
-  "Create language": "Создать язык",
-  "Update language": "Обновить язык",
-  "Delete language": "Удалить язык",
-  "Are you sure you want to delete language": "Вы уверены, что хотите удалить язык"
+    "confirmDelete": "Вы уверены, что хотите удалить резюме"
+  }
 }

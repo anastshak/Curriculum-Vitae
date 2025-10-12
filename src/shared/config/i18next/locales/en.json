@@ -42,26 +42,38 @@
     "cancel": "Cancel",
     "update": "Update",
     "search": "Search",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "create": "Create"
   },
 
   "formFields": {
     "email": "Email",
     "password": "Password",
+
     "firstName": "First Name",
     "lastName": "Last Name",
     "department": "Department",
     "position": "Position",
     "role": "Role",
+
     "skill": "Skill",
     "skillMastery": "Skill Mastery",
+
     "language": "Language",
-    "languageProficiency": "Language Proficiency"
+    "languageProficiency": "Language Proficiency",
+
+    "cvName": "Name",
+    "education": "Education",
+    "description": "Description",
+    "employee": "Employee"
   },
 
   "titles": {
     "updateUser": "Update user",
-    "editProfile": "Edit profile"
+    "editProfile": "Edit profile",
+    "createCv": "Create CV",
+    "updateCv": "Update CV",
+    "deleteCv": "Delete CV"
   },
 
   "errorPage": {
@@ -75,6 +87,7 @@
     "skills": "Skills",
     "languages": "Languages",
     "cvs": "CVs",
+    "cvDetails": "Details",
     "profile": "Profile",
     "settings": "Settings"
   },
@@ -124,36 +137,15 @@
     }
   },
 
-  "Name": "Name",
-  "Internal Name": "Internal Name",
-  "Domain": "Domain",
-  "Start Date": "Start Date",
-  "End Date": "End Date",
-  "Team Size": "Team Size",
-  "Till now": "Till now",
-  "Project": "Project",
-  "Create project": "Create project",
-  "Delete project": "Delete project",
-  "Are you sure you want to delete project": "Are you sure you want to delete project",
+  "cvs": {
+    "noData": "No CVs yet",
+    "createBtn": "Create CV",
 
-  "Template": "Template",
-  "Description": "Description",
-  "Employee": "Employee",
-  "CV": "CV",
-  "Delete CV": "Delete CV",
+    "validation": {
+      "nameRequired": "Name is required",
+      "descRequired": "Description is required"
+    },
 
-  "Create position": "Create position",
-  "Update position": "Update position",
-  "Delete position": "Delete position",
-  "Are you sure you want to delete position": "Are you sure you want to delete position",
-
-  "Create skill": "Create skill",
-  "Delete skill": "Delete skill",
-  "Are you sure you want to delete skill": "Are you sure you want to delete skill",
-
-  "Native Name": "Native Name",
-  "Create language": "Create language",
-  "Update language": "Update language",
-  "Delete language": "Delete language",
-  "Are you sure you want to delete language": "Are you sure you want to delete language"
+    "confirmDelete": "Are you sure you want to delete CV"
+  }
 }

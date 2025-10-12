@@ -4,10 +4,11 @@ import { TextField, TextFieldProps } from '@mui/material';
 type BaseTextFieldProps = TextFieldProps & {
   name: string;
   loading?: boolean;
+  width?: number;
 };
 
-export const BaseTextField = ({ name, loading, ...props }: BaseTextFieldProps) => {
+export const BaseTextField = ({ name, loading, width = 410, ...props }: BaseTextFieldProps) => {
   const { t } = useTranslation();
 
-  return <TextField fullWidth sx={{ maxWidth: 410 }} label={t(name)} disabled={loading} {...props} />;
+  return <TextField fullWidth sx={{ maxWidth: width }} label={t(name)} disabled={loading} {...props} />;
 };
