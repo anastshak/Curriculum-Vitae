@@ -25,7 +25,8 @@ export const ROUTES = {
 
   CVS: '/cvs',
   CV: {
-    ROOT: '/cvs',
+    ROOT: '/cvs/:cvId',
     DETAILS: '/cvs/:cvId/details',
+    PREVIEW: '/cvs/:cvId/preview',
   },
 } as const;

@@ -36,6 +36,11 @@
     "haveAccount": "I have an account"
   },
 
+  "breadcrumbs": {
+    "unknownUser": "Unknown User",
+    "unknownCv": "Unknown Cv"
+  },
+
   "buttonMessages": {
     "wait": "Wait...",
     "loading": "Loading...",
@@ -88,6 +93,7 @@
     "languages": "Languages",
     "cvs": "CVs",
     "cvDetails": "Details",
+    "cvPreview": "Preview",
     "profile": "Profile",
     "settings": "Settings"
   },

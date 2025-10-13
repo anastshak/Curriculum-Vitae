@@ -36,6 +36,11 @@
     "haveAccount": "У меня есть аккаунт"
   },
 
+  "breadcrumbs": {
+    "unknownUser": "Неизвестный пользователь",
+    "unknownCv": "Неизвестное резюме"
+  },
+
   "buttonMessages": {
     "wait": "Подождите...",
     "loading": "Загрузка...",
@@ -88,6 +93,7 @@
     "languages": "Языки",
     "cvs": "Резюме",
     "cvDetails": "Детали",
+    "cvPreview": "Предпросмотр",
     "profile": "Профиль",
     "settings": "Настройки"
   },

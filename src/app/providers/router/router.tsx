@@ -24,6 +24,9 @@ const Profile = lazy(() => import('@pages/user-details/Profile'));
 const UserDetailsLayout = lazy(() => import('@pages/user-details/UserDetailsLayout'));
 const UserCVs = lazy(() => import('@pages/user-cvs'));
 const CVsPage = lazy(() => import('@pages/cvs'));
+const CvDetailsLayout = lazy(() => import('@pages/cv-details/CvDetailsLayout'));
+const CvDetails = lazy(() => import('@pages/cv-details/CvDetails'));
+const CvPreview = lazy(() => import('@pages/cv-preview'));
 
 export const routerRoutes = [
   {
@@ -82,6 +85,24 @@ export const routerRoutes = [
       {
         path: ROUTES.CVS,
         element: <CVsPage />,
+      },
+      {
+        path: ROUTES.CV.ROOT,
+        element: <CvDetailsLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="details" replace />,
+          },
+          {
+            path: ROUTES.CV.DETAILS,
+            element: <CvDetails />,
+          },
+          {
+            path: ROUTES.CV.PREVIEW,
+            element: <CvPreview />,
+          },
+        ],
       },
     ],
   },
