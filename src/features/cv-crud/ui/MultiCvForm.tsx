@@ -104,7 +104,6 @@ export const MultiCvForm = ({ editingCv, onClose, isOwner = true, uiMode, functi
               value={formValues.description}
               onChange={(event) => handleFieldChange('description', event.target.value)}
               disabled={disabledState}
-              width={maxWidth}
               error={!!errors.description}
               helperText={errors.description?.message}
               multiline
@@ -112,6 +111,7 @@ export const MultiCvForm = ({ editingCv, onClose, isOwner = true, uiMode, functi
               sx={{
                 '& .MuiInputBase-root': {
                   height: 185,
+                  width: { maxWidth },
                   overflow: 'auto',
                 },
               }}
