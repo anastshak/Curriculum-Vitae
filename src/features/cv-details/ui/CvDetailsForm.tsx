@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { Container, useTheme } from '@mui/material';
 
 import { useCurrentUser } from '@features/auth';
 import { MultiCvForm } from '@features/cv-crud';
@@ -8,6 +8,7 @@ import { Loader } from '@shared/ui/Loader';
 import { useCv } from '../api';
 
 export const CvDetailsForm = () => {
+  const theme = useTheme();
   const currentUser = useCurrentUser();
   const params = useParams<{ cvId?: string }>();
 
@@ -19,7 +20,16 @@ export const CvDetailsForm = () => {
   if (loading) return <Loader />;
 
   return (
-    <Container maxWidth="md" sx={{ px: 3, py: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        px: 3,
+        py: 4,
+        '& .MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-input': {
+          WebkitTextFillColor: `${theme.palette.text.primary} !important`,
+        },
+      }}
+    >
       <MultiCvForm editingCv={cvData} isOwner={isOwner} uiMode="inline" functionMode="edit" />
     </Container>
   );
