@@ -152,6 +152,30 @@
       "descRequired": "Description is required"
     },
 
-    "confirmDelete": "Are you sure you want to delete CV"
+    "confirmDelete": "Are you sure you want to delete CV",
+
+    "preview": {
+      "button": "Export PDF",
+
+      "education": "Education",
+      "lang": "Language proficiency",
+      "domains": "Domains",
+      "projects": "Projects",
+
+      "project": {
+        "roles": "Project roles",
+        "period": "Period",
+        "now": "Till now",
+        "responsibilities": "Responsibilities",
+        "environment": "Environment"
+      },
+
+      "skills": {
+        "title": "Professional skills",
+        "skills": "Skills",
+        "exp": "Experience in years",
+        "last": "Last used"
+      }
+    }
   }
 }

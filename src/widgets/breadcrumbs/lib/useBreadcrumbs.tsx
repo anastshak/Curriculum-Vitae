@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { Box } from '@mui/material';
 
-import { useCv } from '@features/cv-details/api';
+import { useCv } from '@features/cv/api';
 import { useUser } from '@features/profile/api';
 
 import { PATH_MAPPING } from '../consts/path-map';

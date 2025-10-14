@@ -1,5 +1,7 @@
+import { CVPreview } from '@features/cv';
+
 const CvPreviewPage = () => {
-  return <h1>CV PREVIEW</h1>;
+  return <CVPreview />;
 };
 
 export default CvPreviewPage;

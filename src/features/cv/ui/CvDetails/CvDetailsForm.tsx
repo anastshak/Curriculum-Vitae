@@ -5,7 +5,7 @@ import { useCurrentUser } from '@features/auth';
 import { MultiCvForm } from '@features/cv-crud';
 import { Loader } from '@shared/ui/Loader';
 
-import { useCv } from '../api';
+import { useCv } from '../../api';
 
 export const CvDetailsForm = () => {
   const theme = useTheme();
