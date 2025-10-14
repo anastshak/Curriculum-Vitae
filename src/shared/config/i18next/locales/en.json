@@ -177,5 +177,19 @@
         "last": "Last used"
       }
     }
+  },
+
+  "settings": {
+    "theme": {
+      "title": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "device": "Device"
+    },
+    "language": {
+      "title": "Language",
+      "ru": "Russian",
+      "en": "English"
+    }
   }
 }

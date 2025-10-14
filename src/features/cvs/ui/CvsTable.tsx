@@ -35,7 +35,7 @@ export const CvsTable = () => {
   const showUserColumn = !isUserPage;
 
   const loading = isUserPage ? userLoading : cvsLoading;
-  const isOwner = currentUser?.id === userId;
+  const isOwner = currentUser?.id;
 
   const cvs: CvTable[] = useMemo(() => {
     if (!cvsSource) return [];

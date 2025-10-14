@@ -27,6 +27,7 @@ const CVsPage = lazy(() => import('@pages/cvs'));
 const CvDetailsLayout = lazy(() => import('@pages/cv-details/CvDetailsLayout'));
 const CvDetails = lazy(() => import('@pages/cv-details/CvDetails'));
 const CvPreview = lazy(() => import('@pages/cv-preview'));
+const Settings = lazy(() => import('@pages/settings'));
 
 export const routerRoutes = [
   {
@@ -103,6 +104,10 @@ export const routerRoutes = [
             element: <CvPreview />,
           },
         ],
+      },
+      {
+        path: ROUTES.SETTINGS,
+        element: <Settings />,
       },
     ],
   },

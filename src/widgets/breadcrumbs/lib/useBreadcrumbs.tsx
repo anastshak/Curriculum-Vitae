@@ -56,7 +56,7 @@ export const useBreadcrumbs = () => {
 
         crumbs.push({ label, path: currentPath });
       } else {
-        crumbs.push({ label: mapping.label, path: currentPath });
+        crumbs.push({ label: t(mapping.label), path: currentPath });
       }
     }
 
