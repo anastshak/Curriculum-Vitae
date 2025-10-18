@@ -62,7 +62,6 @@ export const CVPreview = () => {
 
   return (
     <Container ref={pdfRef} maxWidth="md" sx={wrapper}>
-      {/* HEADER */}
       <Box sx={head}>
         <Box>
           <Typography variant="h4">{cvData.user?.profile.full_name || cvData.user?.email}</Typography>
@@ -82,9 +81,7 @@ export const CVPreview = () => {
         </Button>
       </Box>
 
-      {/* SUMMARY */}
       <Box sx={summary}>
-        {/* LEFT COLUMN */}
         <Box sx={{ paddingRight: 3 }}>
           <Typography sx={title}>{t('cvs.preview.education')}</Typography>
           <Typography variant="body2">{cvData.education || '—'}</Typography>
@@ -106,7 +103,6 @@ export const CVPreview = () => {
           )}
         </Box>
 
-        {/* RIGHT COLUMN */}
         <Box sx={main}>
           <Typography sx={title}>{cvData.name}</Typography>
 
@@ -118,7 +114,6 @@ export const CVPreview = () => {
 
       <PageBreak />
 
-      {/* PROJECTS */}
       {cvData.projects?.length !== 0 && (
         <>
           <Box sx={head}>
@@ -133,7 +128,6 @@ export const CVPreview = () => {
         </>
       )}
 
-      {/* PROF SKILLS */}
       <Box sx={head}>
         <Typography variant="h4">{t('cvs.preview.skills.title')}</Typography>
       </Box>

@@ -39,13 +39,16 @@ export const CvsTable = () => {
 
   const cvs: CvTable[] = useMemo(() => {
     if (!cvsSource) return [];
-    return cvsSource.map((cv) => ({
-      id: cv.id,
-      name: cv.name,
-      description: cv.description,
-      employee: cv.user?.email ?? '',
-      originalCv: cv,
-    }));
+    return cvsSource.map((cv) => {
+      const { id, name, description, user } = cv;
+      return {
+        id,
+        name,
+        description,
+        employee: user?.email ?? '',
+        originalCv: cv,
+      };
+    });
   }, [cvsSource]);
 
   const filteredCvs = useMemo(() => {

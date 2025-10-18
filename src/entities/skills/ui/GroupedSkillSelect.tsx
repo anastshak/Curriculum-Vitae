@@ -24,15 +24,18 @@ export const GroupedSkillSelect = ({ user, value, onChange, loading, disabled }:
     if (!skills || !categories) return [];
 
     const grouped = categories
-      .map((category) => {
+      .map(({ id: categoryId, name: categoryName }) => {
         const mappingSkills = skills
-          .filter((skill) => skill.category?.id === category.id && !userSkillNames.has(skill.name))
-          .map((skill) => ({
-            id: `${skill.name}:${category.id}`,
-            label: skill.name,
+          .filter(
+            ({ name: skillName, category: skillCategory }) =>
+              skillCategory?.id === categoryId && !userSkillNames.has(skillName),
+          )
+          .map(({ name: skillName }) => ({
+            id: `${skillName}:${categoryId}`,
+            label: skillName,
           }));
 
-        return { category: category.name, mappingSkills };
+        return { category: categoryName, mappingSkills };
       })
       .filter((group) => group.mappingSkills.length > 0);
 
@@ -63,9 +66,9 @@ export const GroupedSkillSelect = ({ user, value, onChange, loading, disabled }:
     >
       {groupedOptions.map((group) => [
         <ListSubheader key={group.category}>{group.category}</ListSubheader>,
-        group.mappingSkills.map((skill) => (
-          <MenuItem key={skill.id} value={skill.id}>
-            {skill.label}
+        group.mappingSkills.map(({ id, label }) => (
+          <MenuItem key={id} value={id}>
+            {label}
           </MenuItem>
         )),
       ])}

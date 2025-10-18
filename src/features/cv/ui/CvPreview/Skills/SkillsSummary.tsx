@@ -15,15 +15,15 @@ export const SkillsSummary = ({ categories, skills }: SkillsCategoryProps) => {
   }
 
   const grouped = categories
-    .map((category) => {
+    .map(({ id: categoryId, name: categoryName }) => {
       const mappingSkills = skills
-        .filter((skill) => skill.categoryId === category.id)
-        .map((skill) => ({
-          id: `${skill.name}:${category.id}`,
-          label: skill.name,
+        .filter(({ categoryId: skillCategoryId }) => skillCategoryId === categoryId)
+        .map(({ name: skillName }) => ({
+          id: `${skillName}:${categoryId}`,
+          label: skillName,
         }));
 
-      return { category: category.name, mappingSkills };
+      return { category: categoryName, mappingSkills };
     })
     .filter((group) => group.mappingSkills.length > 0);
 
