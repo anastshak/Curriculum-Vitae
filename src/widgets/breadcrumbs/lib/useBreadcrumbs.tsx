@@ -61,7 +61,8 @@ export const useBreadcrumbs = () => {
     }
 
     return crumbs;
-  }, [pathnames, templateSegments, userLoading, t, username, cvLoading, cvName]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathnames, userLoading, t, username, cvLoading, cvName]);
 
   return breadcrumbs;
 };
