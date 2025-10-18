@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -76,6 +77,11 @@ export const MultiCvForm = ({ editingCv, onClose, isOwner = true, uiMode, functi
     methods.setValue(field, value, { shouldDirty: true });
   };
 
+  const buttonText = useMemo(() => {
+    if (loading) return t('buttonMessages.wait');
+    return functionMode === 'create' ? t('buttonMessages.create') : t('buttonMessages.update');
+  }, [loading, functionMode, t]);
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -133,11 +139,7 @@ export const MultiCvForm = ({ editingCv, onClose, isOwner = true, uiMode, functi
               disabled={(!isDirty && functionMode === 'edit') || loading}
               startIcon={loading ? <CircularProgress size={16} /> : null}
             >
-              {loading
-                ? t('buttonMessages.wait')
-                : functionMode === 'create'
-                  ? t('buttonMessages.create')
-                  : t('buttonMessages.update')}
+              {buttonText}
             </Button>
           </DialogActions>
         )}
