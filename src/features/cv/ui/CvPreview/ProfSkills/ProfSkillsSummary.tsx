@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { SkillMastery } from 'cv-graphql';
 
 import { categoryCell, head, lastCell, skillsCell, table } from './ProfSkillsSummary.styles';
+import { SkillCell } from './SkillCell';
 
 type SkillsCategoryProps = {
   categories: { id: string; name: string }[];
@@ -61,27 +62,15 @@ export const ProfSkillsSummary = ({ categories, skills }: SkillsCategoryProps) =
               <TableCell sx={categoryCell}>{group.category}</TableCell>
 
               <TableCell sx={skillsCell}>
-                {group.skills.map((skill) => (
-                  <Typography key={skill.id} variant="body2" sx={{ mb: 0.5 }}>
-                    {skill.name}
-                  </Typography>
-                ))}
+                <SkillCell skills={group.skills} field="name" />
               </TableCell>
 
               <TableCell sx={lastCell}>
-                {group.skills.map((skill) => (
-                  <Typography key={skill.id} variant="body2" sx={{ mb: 0.5 }}>
-                    {skill.experience}
-                  </Typography>
-                ))}
+                <SkillCell skills={group.skills} field="experience" />
               </TableCell>
 
               <TableCell sx={lastCell}>
-                {group.skills.map((skill) => (
-                  <Typography key={skill.id} variant="body2" sx={{ mb: 0.5 }}>
-                    {skill.lastUsed}
-                  </Typography>
-                ))}
+                <SkillCell skills={group.skills} field="lastUsed" />
               </TableCell>
             </TableRow>
           ))}
