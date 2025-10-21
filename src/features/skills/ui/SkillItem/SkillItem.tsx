@@ -22,7 +22,7 @@ export const SkillItem = ({
   const { value, color } = getColorMastery(mastery as Mastery, selected);
   const { progress, background } = getValuesFromTheme(theme, color);
 
-  const wrapperStyles = useMemo(() => getWrapperStyles(isRemoveMode, onSelect), [isRemoveMode, onSelect]);
+  const wrapperStyles = useMemo(() => getWrapperStyles(theme, isRemoveMode, onSelect), [isRemoveMode, onSelect, theme]);
   const progressStyles = useMemo(() => getProgressBarStyles(progress, background), [progress, background]);
 
   return (

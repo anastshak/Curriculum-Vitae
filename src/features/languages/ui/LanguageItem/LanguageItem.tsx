@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EditIcon from '@mui/icons-material/Edit';
-import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material';
 import { Proficiency } from 'cv-graphql';
 
 import { getColorProficiency } from './lib/getColorProficiency';
@@ -18,9 +18,10 @@ export const LanguageItem = ({
   onSelect,
 }: LanguageItemProps) => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const { color } = getColorProficiency(proficiency as Proficiency, selected);
 
-  const wrapperStyles = useMemo(() => getWrapperStyles(isRemoveMode, onSelect), [isRemoveMode, onSelect]);
+  const wrapperStyles = useMemo(() => getWrapperStyles(theme, isRemoveMode, onSelect), [isRemoveMode, onSelect, theme]);
   const profBoxStyles = useMemo(() => getProfBoxStyles(color), [color]);
 
   return (
