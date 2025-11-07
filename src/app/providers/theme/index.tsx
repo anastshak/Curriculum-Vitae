@@ -1,61 +1,44 @@
-import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { getTheme } from '@shared/config/theme/mainTheme';
 
-type ThemeMode = 'light' | 'dark';
+type ThemeMode = 'light' | 'dark' | 'device';
 
 interface ThemeContextProps {
   mode: ThemeMode;
-  toggleTheme: () => void;
+  setMode: (mode: ThemeMode) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useThemeContext = () => {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error('useThemeContext must be used within AppThemeProvider');
+  return ctx;
+};
 
 export const AppThemeProvider = ({ children }: { children: ReactNode }) => {
   const getInitialTheme = (): ThemeMode => {
     const stored = localStorage.getItem('theme') as ThemeMode | null;
     if (stored === 'light' || stored === 'dark') return stored;
-
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+    return 'device';
   };
 
   const [mode, setMode] = useState<ThemeMode>(getInitialTheme);
 
-  const toggleTheme = () => {
-    setMode((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', next);
-      return next;
-    });
-  };
+  const resolvedMode =
+    mode === 'device' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : mode;
 
-  const theme = useMemo(() => getTheme(mode), [mode]);
+  const theme = useMemo(() => getTheme(resolvedMode), [resolvedMode]);
 
   useEffect(() => {
-    const handler = (e: StorageEvent) => {
-      if (e.key === 'theme' && (e.newValue === 'light' || e.newValue === 'dark')) {
-        setMode(e.newValue);
-      }
-    };
-    window.addEventListener('storage', handler);
-    return () => window.removeEventListener('storage', handler);
-  }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = () => {
-      if (!localStorage.getItem('theme')) {
-        setMode(mediaQuery.matches ? 'dark' : 'light');
-      }
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+    localStorage.setItem('theme', mode);
+  }, [mode]);
 
   return (
-    <ThemeContext.Provider value={{ mode, toggleTheme }}>
+    <ThemeContext.Provider value={{ mode, setMode }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}

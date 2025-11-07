@@ -22,6 +22,12 @@ const Skills = lazy(() => import('@pages/skills'));
 const Languages = lazy(() => import('@pages/languages'));
 const Profile = lazy(() => import('@pages/user-details/Profile'));
 const UserDetailsLayout = lazy(() => import('@pages/user-details/UserDetailsLayout'));
+const UserCVs = lazy(() => import('@pages/user-cvs'));
+const CVsPage = lazy(() => import('@pages/cvs'));
+const CvDetailsLayout = lazy(() => import('@pages/cv-details/CvDetailsLayout'));
+const CvDetails = lazy(() => import('@pages/cv-details/CvDetails'));
+const CvPreview = lazy(() => import('@pages/cv-preview'));
+const Settings = lazy(() => import('@pages/settings'));
 
 export const routerRoutes = [
   {
@@ -36,9 +42,13 @@ export const routerRoutes = [
         element: <Users />,
       },
       {
-        path: ROUTES.USER.PROFILE,
+        path: ROUTES.USER.DETAILS,
         element: <UserDetailsLayout />,
         children: [
+          {
+            index: true,
+            element: <Navigate to="profile" replace />,
+          },
           {
             path: ROUTES.USER.PROFILE,
             element: <Profile />,
@@ -50,6 +60,10 @@ export const routerRoutes = [
           {
             path: ROUTES.USER.LANGUAGES,
             element: <Languages />,
+          },
+          {
+            path: ROUTES.USER.CVS,
+            element: <UserCVs />,
           },
         ],
       },
@@ -68,6 +82,32 @@ export const routerRoutes = [
             <Languages />
           </Layout>
         ),
+      },
+      {
+        path: ROUTES.CVS,
+        element: <CVsPage />,
+      },
+      {
+        path: ROUTES.CV.ROOT,
+        element: <CvDetailsLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="details" replace />,
+          },
+          {
+            path: ROUTES.CV.DETAILS,
+            element: <CvDetails />,
+          },
+          {
+            path: ROUTES.CV.PREVIEW,
+            element: <CvPreview />,
+          },
+        ],
+      },
+      {
+        path: ROUTES.SETTINGS,
+        element: <Settings />,
       },
     ],
   },

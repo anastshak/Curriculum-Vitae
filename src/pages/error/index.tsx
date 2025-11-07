@@ -7,6 +7,11 @@ const PageNotFound = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  const handleClick = () => {
+    navigate('/');
+    window.location.reload();
+  };
+
   return (
     <Container component="main" maxWidth="sm">
       <Box
@@ -40,7 +45,7 @@ const PageNotFound = () => {
           {t('errorPage.title')}
         </Typography>
 
-        <Button variant="contained" size="large" startIcon={<HomeIcon />} onClick={() => navigate('/')}>
+        <Button variant="contained" size="large" startIcon={<HomeIcon />} onClick={handleClick}>
           {t('errorPage.button')}
         </Button>
       </Box>

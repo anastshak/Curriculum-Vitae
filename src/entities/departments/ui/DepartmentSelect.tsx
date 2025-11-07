@@ -1,9 +1,9 @@
 import { BaseSelect } from '@shared/ui/BaseSelect';
 
 import { useDepartments } from '../api';
-import { Props } from '../model/types';
+import { DepartmentSelectProps } from '../model/types';
 
-export const DepartmentSelect = ({ value, onChange, loading, isOwner = true }: Props) => {
+export const DepartmentSelect = ({ value, onChange, loading, isOwner = true }: DepartmentSelectProps) => {
   const { data } = useDepartments();
 
   const options = data?.departments.map((department) => ({ id: department.id, label: department.name })) || [];

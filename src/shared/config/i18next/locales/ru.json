@@ -36,27 +36,49 @@
     "haveAccount": "У меня есть аккаунт"
   },
 
+  "breadcrumbs": {
+    "unknownUser": "Неизвестный пользователь",
+    "unknownCv": "Неизвестное резюме"
+  },
+
   "buttonMessages": {
     "wait": "Подождите...",
     "loading": "Загрузка...",
     "cancel": "Отмена",
     "update": "Обновить",
-    "search": "Поиск"
+    "search": "Поиск",
+    "confirm": "Подтвердить",
+    "create": "Создать"
   },
 
   "formFields": {
     "email": "Почта",
     "password": "Пароль",
+
     "firstName": "Имя",
     "lastName": "Фамилия",
     "department": "Отдел",
     "position": "Должность",
-    "role": "Права доступа"
+    "role": "Права доступа",
+
+    "skill": "Навык",
+    "skillMastery": "Уровень владения",
+
+    "language": "Язык",
+    "languageProficiency": "Уровень владения",
+
+    "cvName": "Название",
+    "education": "Образование",
+    "description": "Описание",
+    "employee": "Сотрудник"
   },
 
   "titles": {
     "updateUser": "Обновить пользователя",
-    "editProfile": "Редактировать"
+    "editProfile": "Редактировать",
+    "createCv": "Создать резюме",
+    "updateCv": "Обновить резюме",
+    "deleteCv": "Удалить"
   },
 
   "errorPage": {
@@ -70,6 +92,8 @@
     "skills": "Навыки",
     "languages": "Языки",
     "cvs": "Резюме",
+    "cvDetails": "Детали",
+    "cvPreview": "Предпросмотр",
     "profile": "Профиль",
     "settings": "Настройки"
   },
@@ -89,37 +113,83 @@
     }
   },
 
-  "Name": "Имя",
-  "Internal Name": "Внутреннее имя",
-  "Domain": "Домен",
-  "Start Date": "Дата начала",
-  "End Date": "Дата окончания",
-  "Team Size": "Размер команды",
-  "Till now": "По настоящее время",
-  "Project": "Проект",
-  "Create project": "Создать проект",
-  "Delete project": "Удалить проект",
-  "Are you sure you want to delete project": "Вы уверены, что хотите удалить проект",
+  "skills": {
+    "add": "Дoбавить навык",
+    "update": "Обновить навык",
+    "delete": "Удалить навыки",
+    "deleteSelected": "Удалить выбранные",
 
-  "Template": "Шаблон",
-  "Description": "Описание",
-  "Employee": "Сотрудник",
-  "CV": "Резюме",
-  "Delete CV": "Удалить резюме",
+    "noSkills": "Навыков пока нет",
 
-  "Create position": "Создать должность",
-  "Update position": "Обновить должность",
-  "Delete position": "Удалить должность",
-  "Are you sure you want to delete position": "Вы уверены, что хотите удалить должность",
+    "masteryLevels": {
+      "expert": "Эксперт",
+      "proficient": "Уверенный",
+      "competent": "Компетентный",
+      "advanced": "Продвинутый",
+      "novice": "Новичок"
+    }
+  },
 
-  "Create skill": "Создать навык",
-  "Update skill": "Обновить навык",
-  "Delete skill": "Удалить навык",
-  "Are you sure you want to delete skill": "Вы уверены, что хотите удалить навык",
+  "languages": {
+    "add": "Дoбавить язык",
+    "update": "Обновить язык",
+    "delete": "Удалить язык",
+    "deleteSelected": "Удалить выбранные",
 
-  "Native Name": "Родное имя",
-  "Create language": "Создать язык",
-  "Update language": "Обновить язык",
-  "Delete language": "Удалить язык",
-  "Are you sure you want to delete language": "Вы уверены, что хотите удалить язык"
+    "noLanguages": "Языков пока нет",
+
+    "levels": {
+      "native": "Носитель"
+    }
+  },
+
+  "cvs": {
+    "noData": "Пока нет резюме",
+    "createBtn": "Создать резюме",
+
+    "validation": {
+      "nameRequired": "Введите название",
+      "descRequired": "Напишите описание"
+    },
+
+    "confirmDelete": "Вы уверены, что хотите удалить резюме",
+
+    "preview": {
+      "button": "Экпорт PDF",
+
+      "education": "Образование",
+      "lang": "Языки",
+      "domains": "Домены",
+      "projects": "Проекты",
+
+      "project": {
+        "roles": "Роль в проекте",
+        "period": "Период",
+        "now": "До сих пор",
+        "responsibilities": "Обязанности",
+        "environment": "Окружение"
+      },
+
+      "skills": {
+        "title": "Профессиональные навыки",
+        "skills": "Навыки",
+        "exp": "Опыт в годах",
+        "last": "Последнее использование"
+      }
+    }
+  },
+
+  "settings": {
+    "theme": {
+      "title": "Тема",
+      "light": "Светлая",
+      "dark": "Темная",
+      "device": "Как на устройстве"
+    },
+    "language": {
+      "title": "Язык",
+      "ru": "Русский",
+      "en": "Английский"
+    }
+  }
 }

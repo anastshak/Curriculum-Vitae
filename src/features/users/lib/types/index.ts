@@ -14,11 +14,6 @@ export interface UserTableRow {
   originalUser: User;
 }
 
-export interface SearchProps {
-  search: string;
-  setSearch: (value: string) => void;
-}
-
 export type UserRowMenuProps = {
   user: User;
   setEditingUser: (user: EditUserData) => void;

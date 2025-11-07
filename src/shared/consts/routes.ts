@@ -11,15 +11,22 @@ export const ROUTES = {
   USERS: '/users',
   USER: {
     ROOT: '/users',
-    PROFILE: '/users/:userId',
+    DETAILS: '/users/:userId',
+    PROFILE: '/users/:userId/profile',
     SKILLS: '/users/:userId/skills',
     LANGUAGES: '/users/:userId/languages',
-    CVS: '/users/cvs',
+    CVS: '/users/:userId/cvs',
   },
 
   SETTINGS: '/settings',
 
   SKILLS: '/skills',
   LANGUAGES: '/languages',
+
   CVS: '/cvs',
+  CV: {
+    ROOT: '/cvs/:cvId',
+    DETAILS: '/cvs/:cvId/details',
+    PREVIEW: '/cvs/:cvId/preview',
+  },
 } as const;

@@ -1,7 +1,7 @@
-import { Skills } from '@features/skills';
+import { ProfileSkills } from '@features/skills';
 
 const SkillsPage = () => {
-  return <Skills />;
+  return <ProfileSkills />;
 };
 
 export default SkillsPage;

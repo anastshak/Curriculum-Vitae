@@ -4,17 +4,21 @@ import { useLocation, useParams } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { Box } from '@mui/material';
 
+import { useCv } from '@features/cv/api';
 import { useUser } from '@features/profile/api';
 
 import { PATH_MAPPING } from '../consts/path-map';
 
 export const useBreadcrumbs = () => {
   const location = useLocation();
-  const params = useParams<{ userId?: string }>();
+  const params = useParams<{ userId?: string; cvId?: string }>();
   const { t } = useTranslation();
 
-  const { data, loading } = useUser(params.userId);
-  const username = data?.user?.profile?.full_name ?? data?.user?.email ?? null;
+  const { data: userData, loading: userLoading } = useUser(params.userId);
+  const { data: cvData, loading: cvLoading } = useCv(params.cvId);
+
+  const username = userData?.user?.profile?.full_name ?? userData?.user?.email ?? null;
+  const cvName = cvData?.cv?.name ?? null;
 
   const pathnames = location.pathname.split('/').filter(Boolean);
 
@@ -31,7 +35,7 @@ export const useBreadcrumbs = () => {
       if (!mapping) continue;
 
       if (mapping.queryKey === 'user') {
-        const label = loading ? (
+        const label = userLoading ? (
           t('buttonMessages.loading')
         ) : (
           <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', color: 'primary.main' }}>
@@ -41,13 +45,24 @@ export const useBreadcrumbs = () => {
         );
 
         crumbs.push({ label, path: currentPath });
+      } else if (mapping.queryKey === 'cv') {
+        const label = cvLoading ? (
+          t('buttonMessages.loading')
+        ) : (
+          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', color: 'primary.main' }}>
+            {cvName ?? t('breadcrumbs.unknownCv')}
+          </Box>
+        );
+
+        crumbs.push({ label, path: currentPath });
       } else {
-        crumbs.push({ label: mapping.label, path: currentPath });
+        crumbs.push({ label: t(mapping.label), path: currentPath });
       }
     }
 
     return crumbs;
-  }, [pathnames, templateSegments, loading, username, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathnames, userLoading, t, username, cvLoading, cvName]);
 
   return breadcrumbs;
 };

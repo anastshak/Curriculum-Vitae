@@ -36,27 +36,49 @@
     "haveAccount": "I have an account"
   },
 
+  "breadcrumbs": {
+    "unknownUser": "Unknown User",
+    "unknownCv": "Unknown Cv"
+  },
+
   "buttonMessages": {
     "wait": "Wait...",
     "loading": "Loading...",
     "cancel": "Cancel",
     "update": "Update",
-    "search": "Search"
+    "search": "Search",
+    "confirm": "Confirm",
+    "create": "Create"
   },
 
   "formFields": {
     "email": "Email",
     "password": "Password",
+
     "firstName": "First Name",
     "lastName": "Last Name",
     "department": "Department",
     "position": "Position",
-    "role": "Role"
+    "role": "Role",
+
+    "skill": "Skill",
+    "skillMastery": "Skill Mastery",
+
+    "language": "Language",
+    "languageProficiency": "Language Proficiency",
+
+    "cvName": "Name",
+    "education": "Education",
+    "description": "Description",
+    "employee": "Employee"
   },
 
   "titles": {
     "updateUser": "Update user",
-    "editProfile": "Edit profile"
+    "editProfile": "Edit profile",
+    "createCv": "Create CV",
+    "updateCv": "Update CV",
+    "deleteCv": "Delete CV"
   },
 
   "errorPage": {
@@ -70,6 +92,8 @@
     "skills": "Skills",
     "languages": "Languages",
     "cvs": "CVs",
+    "cvDetails": "Details",
+    "cvPreview": "Preview",
     "profile": "Profile",
     "settings": "Settings"
   },
@@ -89,37 +113,83 @@
     }
   },
 
-  "Name": "Name",
-  "Internal Name": "Internal Name",
-  "Domain": "Domain",
-  "Start Date": "Start Date",
-  "End Date": "End Date",
-  "Team Size": "Team Size",
-  "Till now": "Till now",
-  "Project": "Project",
-  "Create project": "Create project",
-  "Delete project": "Delete project",
-  "Are you sure you want to delete project": "Are you sure you want to delete project",
+  "skills": {
+    "add": "Add skill",
+    "update": "Update skill",
+    "delete": "Delete skills",
+    "deleteSelected": "Delete selected",
 
-  "Template": "Template",
-  "Description": "Description",
-  "Employee": "Employee",
-  "CV": "CV",
-  "Delete CV": "Delete CV",
+    "noSkills": "No skills yet",
 
-  "Create position": "Create position",
-  "Update position": "Update position",
-  "Delete position": "Delete position",
-  "Are you sure you want to delete position": "Are you sure you want to delete position",
+    "masteryLevels": {
+      "expert": "Expert",
+      "proficient": "Proficient",
+      "competent": "Competent",
+      "advanced": "Advanced",
+      "novice": "Novice"
+    }
+  },
 
-  "Create skill": "Create skill",
-  "Update skill": "Update skill",
-  "Delete skill": "Delete skill",
-  "Are you sure you want to delete skill": "Are you sure you want to delete skill",
+  "languages": {
+    "add": "Add language",
+    "update": "Update language",
+    "delete": "Delete language",
+    "deleteSelected": "Delete selected",
 
-  "Native Name": "Native Name",
-  "Create language": "Create language",
-  "Update language": "Update language",
-  "Delete language": "Delete language",
-  "Are you sure you want to delete language": "Are you sure you want to delete language"
+    "noLanguages": "No languages yet",
+
+    "levels": {
+      "native": "Native"
+    }
+  },
+
+  "cvs": {
+    "noData": "No CVs yet",
+    "createBtn": "Create CV",
+
+    "validation": {
+      "nameRequired": "Name is required",
+      "descRequired": "Description is required"
+    },
+
+    "confirmDelete": "Are you sure you want to delete CV",
+
+    "preview": {
+      "button": "Export PDF",
+
+      "education": "Education",
+      "lang": "Language proficiency",
+      "domains": "Domains",
+      "projects": "Projects",
+
+      "project": {
+        "roles": "Project roles",
+        "period": "Period",
+        "now": "Till now",
+        "responsibilities": "Responsibilities",
+        "environment": "Environment"
+      },
+
+      "skills": {
+        "title": "Professional skills",
+        "skills": "Skills",
+        "exp": "Experience in years",
+        "last": "Last used"
+      }
+    }
+  },
+
+  "settings": {
+    "theme": {
+      "title": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "device": "Device"
+    },
+    "language": {
+      "title": "Language",
+      "ru": "Russian",
+      "en": "English"
+    }
+  }
 }

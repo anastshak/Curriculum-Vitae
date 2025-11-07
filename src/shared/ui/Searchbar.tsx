@@ -2,7 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { Search } from '@mui/icons-material';
 import { Box, InputAdornment, TextField } from '@mui/material';
 
-import { SearchProps } from '../lib/types';
+interface SearchProps {
+  search: string;
+  setSearch: (value: string) => void;
+}
 
 export const Searchbar = ({ search, setSearch }: SearchProps) => {
   const { t } = useTranslation();

@@ -1,4 +1,4 @@
-export type Props = {
+export type PositionSelectProps = {
   value: string;
   onChange?: (value: string) => void;
   loading: boolean;
